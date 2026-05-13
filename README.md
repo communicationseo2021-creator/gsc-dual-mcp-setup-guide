@@ -1,0 +1,1 @@
+# gsc-dual-mcp-setup-guide
