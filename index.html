@@ -165,6 +165,24 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(0,150
   .toc{flex-direction:column;}
 }
 
+/* ===== Use-case box at top of each MCP panel ===== */
+.usebox{border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:24px;box-shadow:0 1px 3px rgba(66,90,99,.04);}
+.usebox.deep{border-color:rgba(0,189,211,.30);background:linear-gradient(135deg,rgba(0,189,211,.05),rgba(0,189,211,.01));}
+.usebox.multi{border-color:rgba(0,150,239,.28);background:linear-gradient(135deg,rgba(0,150,239,.05),rgba(0,150,239,.01));}
+.usebox h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#1a1f21;margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.usebox .ubadge{font-family:'JetBrains Mono',monospace;font-size:10px;padding:3px 9px;border-radius:5px;font-weight:500;letter-spacing:.04em;}
+.usebox.deep .ubadge{background:rgba(0,189,211,.14);color:#007a8a;border:1px solid rgba(0,189,211,.32);}
+.usebox.multi .ubadge{background:rgba(0,150,239,.14);color:#004fa3;border:1px solid rgba(0,150,239,.32);}
+.usebox .usub{font-size:13.5px;color:#1a1f21;margin-bottom:16px;line-height:1.6;}
+.usegrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+.uitem{background:#fff;border:1px solid var(--border);border-radius:9px;padding:13px 15px;}
+.uitem h4{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#1a1f21;margin-bottom:8px;letter-spacing:-0.005em;}
+.uitem ul{margin:0;padding-left:16px;}
+.uitem li{font-size:12px;color:#1a1f21;margin-bottom:4px;line-height:1.5;}
+.uitem li::marker{color:var(--storm);font-size:10px;}
+@media(max-width:880px){.usegrid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.usegrid{grid-template-columns:1fr;}}
+
 /* ===== gsc-multi Step 03 wizard ===== */
 .macc{border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px;background:#fbfbfd;transition:background .2s,border-color .2s;}
 .macc.done{background:#f0fdf4;border-color:#86efac;}
@@ -227,6 +245,73 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(0,150
 
 <!-- ========================== PANEL: gsc-deep ========================== -->
 <div class="panel show" id="panel-deep">
+  <div class="usebox deep">
+    <h3>What you can ask gsc-deep to do <span class="ubadge">gsc-deep</span></h3>
+    <p class="usub">Deep, per-site SEO analytics on <strong>one</strong> Google account at a time. Pick this MCP when you want depth over breadth &mdash; URL-level inspection, sitemap audits, period comparisons, multi-dimension filtering. All 20+ tools work read-only by default; add/delete operations are gated behind a safety flag.</p>
+    <div class="usegrid">
+      <div class="uitem">
+        <h4>URL inspection &amp; indexing</h4>
+        <ul>
+          <li>Is this page indexed? When was it last crawled by Google?</li>
+          <li>Mobile usability issues on a specific URL</li>
+          <li>Robots, canonical, AMP, rich-result signals</li>
+          <li>Batch inspect up to 10 URLs at once</li>
+          <li>Audit indexing of your top traffic pages</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Search analytics depth</h4>
+        <ul>
+          <li>Top queries, pages, countries, devices for any date range</li>
+          <li>Multi-dimension filtering (e.g. mobile + USA only)</li>
+          <li>Query &times; landing-page combinations</li>
+          <li>Search-appearance breakdowns (FAQ, reviews, video)</li>
+          <li>Custom row limits up to 25 000 rows</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Period comparison</h4>
+        <ul>
+          <li>Last 28 days vs previous 28 days</li>
+          <li>This month vs same month last year</li>
+          <li>Biggest gainer and loser queries / pages</li>
+          <li>Explain unusual traffic drops or spikes</li>
+          <li>Track week-over-week ranking changes</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Sitemap management</h4>
+        <ul>
+          <li>List all sitemaps with status + errors + warnings</li>
+          <li>Submit a new sitemap to Google</li>
+          <li>Audit sitemap processing health</li>
+          <li>Diagnose XML / index sitemap issues</li>
+          <li>Remove obsolete sitemap entries</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Quick-win discovery</h4>
+        <ul>
+          <li>Position 11&ndash;20 keywords with high impressions</li>
+          <li>Low-CTR pages that need title rewrites</li>
+          <li>High-impression queries you don't rank for yet</li>
+          <li>Cannibalization &mdash; multiple pages ranking for one query</li>
+          <li>Brand vs non-brand query mix</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Site management</h4>
+        <ul>
+          <li>List all GSC properties on the connected account</li>
+          <li>Verification + ownership details per site</li>
+          <li>Add a new domain to GSC</li>
+          <li>Remove an old property (safety-gated)</li>
+          <li>Compare access levels across properties</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <div class="toc">
     <a href="#d1" class="ta"><span class="tn">01</span> Node.js</a>
     <a href="#d2" class="ta"><span class="tn">02</span> Google Cloud Credentials</a>
@@ -435,6 +520,73 @@ npm --version</pre></div>
 
 <!-- ========================== PANEL: gsc-multi ========================== -->
 <div class="panel" id="panel-multi">
+  <div class="usebox multi">
+    <h3>What you can ask gsc-multi to do <span class="ubadge">gsc-multi</span></h3>
+    <p class="usub">Routine SEO management across <strong>many</strong> Google accounts at once (one alias per Gmail, no upper limit). Pick this MCP when you want breadth &mdash; see every property at once, mine keyword opportunities across a portfolio, route specific queries to specific accounts.</p>
+    <div class="usegrid">
+      <div class="uitem">
+        <h4>Account management</h4>
+        <ul>
+          <li>List every authenticated alias and its Gmail</li>
+          <li>See which sites live under which account</li>
+          <li>Switch the active account per query (just say the alias)</li>
+          <li>Add a new account any time &mdash; no Claude restart needed</li>
+          <li>Remove an alias (delete one token file)</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Multi-property view</h4>
+        <ul>
+          <li>List ALL sites across ALL accounts in one call</li>
+          <li>Access-level annotation (Site Owner / Full / Restricted)</li>
+          <li>Find which account owns a given domain</li>
+          <li>Portfolio-wide property inventory</li>
+          <li>Spot domains you've lost access to</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Keyword opportunity mining</h4>
+        <ul>
+          <li>High-impression / low-CTR queries (title fixes)</li>
+          <li>Position-11&ndash;20 near-page-1 quick wins</li>
+          <li>Brand-only query analysis &mdash; you vs competitors</li>
+          <li>Rising or declining keyword trends over time</li>
+          <li>Keyword density per landing page</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Search analytics</h4>
+        <ul>
+          <li>Top queries, pages, devices for any account</li>
+          <li>Period-over-period traffic comparison</li>
+          <li>Filter by search appearance (FAQ, reviews, etc.)</li>
+          <li>Filter by search type (web, image, video, news)</li>
+          <li>Date-range slicing up to 16 months back</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>URL &amp; sitemap basics</h4>
+        <ul>
+          <li>Inspect a single URL (indexing status)</li>
+          <li>List a site's sitemaps</li>
+          <li>Top-page rankings for a domain</li>
+          <li>Same-query comparisons across domains</li>
+          <li>Same-domain comparisons across accounts (collaborator vs owner)</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Bulk export</h4>
+        <ul>
+          <li>Export analytics to CSV for spreadsheet work</li>
+          <li>Multi-account bulk pulls</li>
+          <li>Multi-domain aggregations</li>
+          <li>Custom date ranges and dimensions</li>
+          <li>Roll-up reports for client roundups</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <div class="toc">
     <a href="#m1" class="ta"><span class="tn">01</span> Node.js</a>
     <a href="#m2" class="ta"><span class="tn">02</span> Install Package</a>
