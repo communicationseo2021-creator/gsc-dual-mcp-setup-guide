@@ -411,6 +411,17 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(0,150
       <div class="ctitle">Download and install from the official website</div>
       <span class="ac brws"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Chrome or Edge browser</span>
       <p style="margin-top:8px;">Go to <a href="https://nodejs.org" target="_blank">nodejs.org</a> and download the <strong>LTS version</strong>. Run the installer keeping all default options. Node.js also installs <code>npm</code> automatically.</p>
+      <div class="wb" style="margin-top:10px;"><strong>&#9888; The standard Node.js installer requires admin rights (UAC prompt).</strong> If you are on a local user account without admin access, ask your IT admin or someone with admin rights to run the installer once on this machine. After that, everything else in this guide runs under your local user account with no further admin involvement needed.</div>
+      <div class="card" style="margin-top:12px;border-color:rgba(0,150,239,.25);background:rgba(0,150,239,.02);">
+        <div class="ctitle">No-admin option &mdash; portable Node.js zip (no UAC, no IT needed)</div>
+        <ol>
+          <li>Go to <a href="https://nodejs.org/en/download" target="_blank">nodejs.org/en/download</a>, scroll to <strong>Prebuilt Binaries</strong>, choose <strong>Windows</strong> platform and <strong>x64</strong> architecture, then download the <strong>.zip</strong> file</li>
+          <li>Extract the zip to a folder you own, for example: <code>C:\Users\YOUR_USERNAME\nodejs</code></li>
+          <li>Add that folder to your personal PATH: press <span class="kbd">Win</span>, search <strong>Edit environment variables for your account</strong>, click <strong>Path &rarr; Edit &rarr; New</strong>, paste <code>C:\Users\YOUR_USERNAME\nodejs</code>, click OK</li>
+          <li>Close all Command Prompt windows and reopen one, then verify with <code>node --version</code> and <code>npm --version</code></li>
+        </ol>
+        <div class="ib" style="margin-top:8px;">This portable install lives entirely inside your user folder. No UAC prompt, no system-wide changes. npm global packages installed afterward land in <code>%APPDATA%\npm</code> which is also user-owned.</div>
+      </div>
       <p style="margin-top:14px;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;">Verify install</p>
       <span class="ac cmd" style="margin-top:6px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>Command Prompt (cmd.exe)</span>
       <div class="ho"><strong>How to open:</strong> Press <span class="kbd">Win</span> + <span class="kbd">R</span> &rarr; type <span class="kbd">cmd</span> &rarr; press <span class="kbd">Enter</span></div>
@@ -452,13 +463,15 @@ npm --version</pre></div>
   <div class="div"></div>
 
   <div class="section" id="d3">
-    <div class="shd"><div class="sn t">Step 03</div><div><div class="stitle">Install uv &mdash; the Python package runner</div><div class="ssub">gsc-deep runs via uvx. Command Prompt only. Run as Administrator.</div></div></div>
+    <div class="shd"><div class="sn t">Step 03</div><div><div class="stitle">Install uv &mdash; the Python package runner</div><div class="ssub">gsc-deep runs via uvx. No admin rights needed &mdash; installs to your user folder only.</div></div></div>
     <div class="card">
-      <div class="ctitle">Open Command Prompt as Administrator and run the installer</div>
-      <span class="ac cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>Command Prompt &mdash; Run as Administrator</span>
-      <div class="ho"><strong>How to open as Admin:</strong> Press <span class="kbd">Win</span>, type <span class="kbd">cmd</span>, right-click <strong>Command Prompt</strong> &rarr; <strong>Run as administrator</strong>, click Yes</div>
-      <div class="cb"><div class="cbh"><span class="cbl">cmd (admin)</span><button class="cpb" onclick="cp(this,'powershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"')">Copy</button></div><pre>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</pre></div>
-      <p>Wait for "uv is installed successfully". Then <strong>close Command Prompt completely and reopen it</strong> &mdash; required for the path to update.</p>
+      <div class="ctitle">Run the installer from a regular Command Prompt &mdash; no admin required</div>
+      <div class="ob" style="margin-bottom:12px;"><strong>&#10003; No admin rights needed.</strong> The uv installer puts everything inside <code>C:\Users\YOUR_USERNAME\.local\bin\</code> which is your own user folder. A local user account can run this without asking IT for anything.</div>
+      <span class="ac cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>Regular Command Prompt &mdash; no admin needed</span>
+      <div class="ho"><strong>How to open:</strong> Press <span class="kbd">Win</span> + <span class="kbd">R</span>, type <code>cmd</code>, press <span class="kbd">Enter</span> &mdash; do NOT right-click as administrator</div>
+      <div class="cb"><div class="cbh"><span class="cbl">cmd &mdash; regular user</span><button class="cpb" onclick="cp(this,'powershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"')">Copy</button></div><pre>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</pre></div>
+      <p>Wait for "uv is installed successfully". Then <strong>close Command Prompt completely and reopen it</strong> &mdash; required for the PATH to update in your user session.</p>
+      <div class="wb" style="margin-top:10px;"><strong>If you accidentally ran this as Administrator previously</strong> and uv ended up in a system-wide path instead of your user folder, run <code>where.exe uvx</code> in a regular Command Prompt to see where it landed. If the path starts with <code>C:\Users\YOUR_USERNAME\</code> you are fine. If it starts with <code>C:\Windows\</code> or <code>C:\Program Files\</code>, uninstall uv and re-run the installer above from a regular (non-admin) Command Prompt so it lands in your user folder.</div>
     </div>
     <div class="card">
       <div class="ctitle">Verify and find the exact uvx.exe path</div>
@@ -742,6 +755,17 @@ npm --version</pre></div>
       <div class="ctitle">Download and install from the official website</div>
       <span class="ac brws"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Chrome or Edge browser</span>
       <p style="margin-top:8px;">Visit <a href="https://nodejs.org" target="_blank">nodejs.org</a> and download the <strong>LTS version</strong>. Run the installer with all defaults. When asked about "Automatically install necessary tools", check that box.</p>
+      <div class="wb" style="margin-top:10px;"><strong>&#9888; The standard Node.js installer requires admin rights (UAC prompt).</strong> If you are on a local user account without admin access, ask your IT admin or someone with admin rights to install Node.js once on this machine. After Node.js is installed, everything else in this guide runs as your local user with no further admin involvement.</div>
+      <div class="card" style="margin-top:12px;border-color:rgba(0,150,239,.25);background:rgba(0,150,239,.02);">
+        <div class="ctitle">No-admin option &mdash; portable Node.js zip (no UAC, no IT needed)</div>
+        <ol>
+          <li>Go to <a href="https://nodejs.org/en/download" target="_blank">nodejs.org/en/download</a>, scroll to <strong>Prebuilt Binaries</strong>, choose <strong>Windows</strong> platform and <strong>x64</strong> architecture, then download the <strong>.zip</strong> file</li>
+          <li>Extract the zip to a folder you own, for example: <code>C:\Users\YOUR_USERNAME\nodejs</code></li>
+          <li>Add that folder to your personal PATH: press <span class="kbd">Win</span>, search <strong>Edit environment variables for your account</strong>, click <strong>Path &rarr; Edit &rarr; New</strong>, paste <code>C:\Users\YOUR_USERNAME\nodejs</code>, click OK</li>
+          <li>Close all Command Prompt windows and reopen one, then verify with <code>node --version</code> and <code>npm --version</code></li>
+        </ol>
+        <div class="ib" style="margin-top:8px;">The portable zip approach requires no UAC and installs everything under your user folder. npm global packages land in <code>%APPDATA%\npm</code> which is user-owned, so <code>npm install -g google-searchconsole-mcp</code> in the next step will work without admin.</div>
+      </div>
       <p style="margin-top:14px;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;">Verify in Command Prompt</p>
       <span class="ac cmd" style="margin-top:6px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>Command Prompt (cmd.exe)</span>
       <div class="ho"><strong>How to open:</strong> Press <span class="kbd">Win</span> + <span class="kbd">R</span> &rarr; type <span class="kbd">cmd</span> &rarr; press <span class="kbd">Enter</span></div>
@@ -758,7 +782,10 @@ npm --version</pre></div>
       <div class="ctitle">Run in Command Prompt</div>
       <span class="ac cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>Command Prompt (cmd.exe)</span>
       <div class="ho"><strong>How to open:</strong> Press <span class="kbd">Win</span> + <span class="kbd">R</span> &rarr; type <span class="kbd">cmd</span> &rarr; press <span class="kbd">Enter</span></div>
+      <div class="ob" style="margin-bottom:10px;"><strong>&#10003; No admin rights needed for this step.</strong> <code>npm install -g</code> installs to <code>%APPDATA%\npm\node_modules\</code> which is your personal user folder. No UAC prompt will appear.</div>
       <div class="cb"><div class="cbh"><span class="cbl b">cmd</span><button class="cpb" onclick="cp(this,'npm install -g google-searchconsole-mcp')">Copy</button></div><pre>npm install -g google-searchconsole-mcp</pre></div>
+      <div class="wb" style="margin-top:10px;"><strong>If you see "EACCES permission denied" or "Access is denied"</strong> during install, npm is pointing at a system folder. Fix it by running this once to redirect npm globals to your user folder, then re-run the install above:</div>
+      <div class="cb" style="margin-top:6px;"><div class="cbh"><span class="cbl b">cmd &mdash; run once to fix npm prefix</span><button class="cpb" onclick="cp(this,'npm config set prefix %APPDATA%\\npm')">Copy</button></div><pre>npm config set prefix %APPDATA%\npm</pre></div>
       <div class="wb" style="margin-top:10px;"><strong>If you opened PowerShell instead of Command Prompt</strong> and see <em>"running scripts is disabled on this system"</em> when you run <code>npm</code> or <code>gsc-mcp-auth</code> later, the PowerShell <code>.ps1</code> shim is blocked by your execution policy. Two fixes:
         <ul style="margin-top:8px;margin-bottom:0;padding-left:22px;">
           <li><strong>Easiest:</strong> use Command Prompt (<code>cmd.exe</code>) instead of PowerShell &mdash; the <code>.cmd</code> shims aren't subject to the policy. All commands in this guide are written for <code>cmd.exe</code>.</li>
