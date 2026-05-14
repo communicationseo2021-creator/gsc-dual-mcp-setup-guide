@@ -213,6 +213,24 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(0,150
   </div>
 </div>
 
+<div id="get-claude-desktop" style="background:#fff;border-bottom:2px solid rgba(0,150,239,.18);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+  <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div style="width:10px;height:10px;border-radius:50%;background:#0096EF;flex-shrink:0;"></div>
+      <span style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#1a1f21;">These MCPs only work in Claude Desktop</span>
+    </div>
+    <span style="font-size:13px;color:#425A63;">Not in Claude.ai (browser) &mdash; you must use the installed desktop app</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+    <span style="font-size:12px;color:#425A63;">Don't have it yet?</span>
+    <a href="https://claude.ai/download" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#0096EF;color:#fff;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;padding:8px 18px;border-radius:8px;text-decoration:none;" onmouseover="this.style.background='#007dc8'" onmouseout="this.style.background='#0096EF'">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download &rarr; claude.ai/download
+    </a>
+    <a href="#howto-open-desktop" onclick="document.getElementById('howto-open-desktop').scrollIntoView({behavior:'smooth'});return false;" style="display:inline-flex;align-items:center;gap:5px;background:rgba(0,150,239,.08);color:#003e85;border:1px solid rgba(0,150,239,.25);font-family:'Syne',sans-serif;font-size:12px;font-weight:600;padding:7px 14px;border-radius:8px;text-decoration:none;">How to open it &#8595;</a>
+  </div>
+</div>
+
 <div class="tab-bar">
   <div class="tab-bar-inner">
     <button class="tb ad" id="tb-deep" onclick="sw('deep')">
@@ -241,6 +259,50 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(0,150
     <li><code>YOUR_ALIAS</code> &mdash; (gsc-multi only) the short nickname you give each Google account when running <code>gsc-mcp-auth --alias &lt;name&gt;</code>. Lowercase letters, digits, hyphens, underscores only &mdash; no spaces, no <code>@</code>. Example aliases: <code>account1</code>, <code>client-acme</code>, <code>personal</code>.</li>
   </ul>
   <p style="margin-top:10px;margin-bottom:0;font-size:12.5px;"><strong>Important:</strong> the JSON config file does <em>not</em> expand environment variables &mdash; <code>%USERPROFILE%</code> and <code>~</code> are interpreted literally. You must write the full path with your real username.</p>
+</div>
+
+<!-- ========================== HOW TO OPEN CLAUDE DESKTOP ========================== -->
+<div id="howto-open-desktop" class="cfg-ban" style="border-color:rgba(0,150,239,.3);background:linear-gradient(135deg,rgba(0,150,239,.04),rgba(0,189,211,.02));margin-bottom:28px;">
+  <h3>Where to use these MCPs &mdash; Claude Desktop (installed app)</h3>
+  <p class="csub">gsc-deep and gsc-multi are local MCP servers. They run on your computer and are only accessible from the Claude Desktop app. They do not work in Claude.ai (browser), Claude mobile, or any browser tab.</p>
+  <div class="cfg-tags">
+    <span class="ctg m"><span class="cd"></span> Claude Desktop only</span>
+    <span class="ctg d"><span class="cd"></span> Not Claude.ai browser</span>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px;">
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;">
+      <h4 style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#1a1f21;margin-bottom:10px;">Step 1 &mdash; Download Claude Desktop</h4>
+      <p style="font-size:13px;color:#1a1f21;margin-bottom:10px;">Go to <a href="https://claude.ai/download" target="_blank">claude.ai/download</a> and download the Windows installer. Run the <code>.exe</code> and follow the prompts. Claude Desktop installs like any normal Windows application.</p>
+      <div style="background:rgba(0,150,239,.06);border:1px solid rgba(0,150,239,.2);border-radius:7px;padding:10px 13px;font-size:12.5px;color:#003e85;">After install you will see a Claude icon in your Start menu and system tray. It is separate from any browser bookmark or tab.</div>
+    </div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;">
+      <h4 style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#1a1f21;margin-bottom:10px;">Step 2 &mdash; Open Claude Desktop (not the browser)</h4>
+      <ol style="margin:0;padding-left:18px;">
+        <li style="font-size:13px;margin-bottom:6px;">Press <span class="kbd">Win</span>, type <code>Claude</code>, click the <strong>Claude</strong> app result (not a browser link)</li>
+        <li style="font-size:13px;margin-bottom:6px;">Or look for the Claude icon in your system tray (bottom-right near the clock)</li>
+        <li style="font-size:13px;margin-bottom:6px;">Sign in with your Anthropic account</li>
+        <li style="font-size:13px;">You should see a small hammer &#128296; icon or tool count near the chat input when MCPs are loaded correctly</li>
+      </ol>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;">
+    <div style="background:rgba(0,168,107,.05);border:1px solid rgba(0,168,107,.22);border-left:3px solid var(--green);border-radius:9px;padding:13px 17px;">
+      <strong style="font-size:13px;color:#003d22;display:block;margin-bottom:6px;">&#10003; You are in Claude Desktop if you see:</strong>
+      <ul style="margin:0;padding-left:18px;">
+        <li style="font-size:12.5px;color:#003d22;margin-bottom:3px;">A hammer icon or "X tools" badge near the chat input</li>
+        <li style="font-size:12.5px;color:#003d22;margin-bottom:3px;">Settings menu includes a "Developer" section</li>
+        <li style="font-size:12.5px;color:#003d22;">The window is a standalone desktop app, not a browser tab</li>
+      </ul>
+    </div>
+    <div style="background:rgba(217,68,68,.04);border:1px solid rgba(217,68,68,.18);border-left:3px solid var(--red);border-radius:9px;padding:13px 17px;">
+      <strong style="font-size:13px;color:#8b1f1f;display:block;margin-bottom:6px;">&#10007; You are in Claude.ai (wrong app) if you see:</strong>
+      <ul style="margin:0;padding-left:18px;">
+        <li style="font-size:12.5px;color:#9b2c2c;margin-bottom:3px;">URL bar shows <code>claude.ai</code> in a browser</li>
+        <li style="font-size:12.5px;color:#9b2c2c;margin-bottom:3px;">Claude lists "Google Drive, Gmail, Canva, Supermetrics" as its tools</li>
+        <li style="font-size:12.5px;color:#9b2c2c;">Claude says it cannot find "gsc-deep" in the MCP registry</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <!-- ========================== PANEL: gsc-deep ========================== -->
@@ -417,8 +479,44 @@ npm --version</pre></div>
       <span class="ac expl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>Windows File Explorer</span>
       <div class="ho"><strong>Fastest way:</strong> Press <span class="kbd">Win</span> + <span class="kbd">R</span>, paste this path, press <span class="kbd">Enter</span></div>
       <div class="cb"><div class="cbh"><span class="cbl">Win+R Run dialog</span><button class="cpb" onclick="cp(this,'%APPDATA%\\Claude')">Copy</button></div><pre>%APPDATA%\Claude</pre></div>
-      <p>Look for <code>claude_desktop_config.json</code>. If it does not exist: right-click empty space &rarr; <strong>New &rarr; Text Document</strong> &rarr; rename it to exactly <code>claude_desktop_config.json</code>.</p>
+      <p>Look for <code>claude_desktop_config.json</code>. If it exists, open it in Notepad and proceed to the next card. If it does <strong>not</strong> exist, follow the steps below to create it.</p>
     </div>
+    <div class="card" style="border-color:rgba(217,68,68,.3);background:rgba(217,68,68,.02);">
+      <div class="ctitle">&#9888; If <code>claude_desktop_config.json</code> is missing &mdash; create it</div>
+      <div class="wb" style="margin-top:0;margin-bottom:14px;"><strong>Why it may be missing:</strong> Claude Desktop does not create this file automatically on first install. You must create it yourself before MCP servers can be registered.</div>
+      <p style="font-size:13px;margin-bottom:12px;"><strong>Method A &mdash; Create via Notepad (easiest)</strong></p>
+      <ol>
+        <li>Press <span class="kbd">Win</span> + <span class="kbd">R</span>, type <code>%APPDATA%\Claude</code>, press <span class="kbd">Enter</span>. If the Claude folder itself is missing, create it: <span class="kbd">Win</span> + <span class="kbd">R</span> &rarr; <code>%APPDATA%</code> &rarr; right-click &rarr; <strong>New &rarr; Folder</strong> &rarr; name it <code>Claude</code></li>
+        <li>Inside the Claude folder: right-click empty space &rarr; <strong>New &rarr; Text Document</strong></li>
+        <li>Name it <code>claude_desktop_config.json</code> and press <span class="kbd">Enter</span>. When Windows warns about changing the extension, click <strong>Yes</strong></li>
+        <li>Right-click the new file &rarr; <strong>Open with &rarr; Notepad</strong></li>
+        <li>Paste the config from the panel at the top of this page, then save with <span class="kbd">Ctrl</span> + <span class="kbd">S</span></li>
+      </ol>
+      <div class="ib" style="margin-top:10px;"><strong>Important:</strong> Windows may silently save the file as <code>claude_desktop_config.json.txt</code> if "Hide extensions for known file types" is on. To check: in File Explorer, click <strong>View &rarr; Show &rarr; File name extensions</strong>. The filename must end in <code>.json</code>, not <code>.json.txt</code>.</div>
+      <p style="font-size:13px;margin-top:14px;margin-bottom:8px;"><strong>Method B &mdash; Create via Command Prompt (one command)</strong></p>
+      <span class="ac cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>Command Prompt</span>
+      <div class="cb" style="margin-top:8px;"><div class="cbh"><span class="cbl">cmd &mdash; creates the file and folder if missing</span><button class="cpb" onclick="cp(this,'if not exist \"%APPDATA%\\Claude\" mkdir \"%APPDATA%\\Claude\" && echo {} > \"%APPDATA%\\Claude\\claude_desktop_config.json\"')">Copy</button></div><pre>if not exist "%APPDATA%\Claude" mkdir "%APPDATA%\Claude" && echo {} > "%APPDATA%\Claude\claude_desktop_config.json"</pre></div>
+      <p style="font-size:13px;">This creates both the folder and an empty valid JSON file. Then open it in Notepad and replace the <code>{}</code> with the full config from the top of this panel.</p>
+    </div>
+    <div class="card" style="border-color:rgba(224,123,32,.3);background:rgba(224,123,32,.02);">
+      <div class="ctitle">&#9888; If the Claude folder has a garbled name like <code>Claude_abc123</code></div>
+      <div class="wb" style="margin-top:0;margin-bottom:14px;"><strong>Why this happens:</strong> Windows sometimes creates the AppData roaming folder with a random suffix appended during install or update &mdash; for example <code>Claude_dasd12</code>, <code>Claude_f3a9b</code>, or similar. When this happens, <code>%APPDATA%\Claude</code> does not exist and Claude cannot find or load the config file.</div>
+      <p style="font-size:13px;margin-bottom:10px;"><strong>Step 1 &mdash; Find the real folder name via Command Prompt</strong></p>
+      <span class="ac cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>Command Prompt</span>
+      <div class="cb" style="margin-top:8px;"><div class="cbh"><span class="cbl">cmd &mdash; find real Claude folder name</span><button class="cpb" onclick="cp(this,'dir /b &quot;%APPDATA%&quot; | findstr /i claude')">Copy</button></div><pre>dir /b "%APPDATA%" | findstr /i claude</pre></div>
+      <p style="font-size:13px;margin-top:8px;">This prints whatever folder name Windows actually created. If the output is <code>Claude_f3a9b1</code>, your real config path is:</p>
+      <div class="cb" style="margin-top:8px;"><div class="cbh"><span class="cbl">example with garbled folder name</span></div><pre>C:\Users\YOUR_USERNAME\AppData\Roaming\Claude_f3a9b1\claude_desktop_config.json</pre></div>
+      <p style="font-size:13px;margin-top:14px;margin-bottom:6px;"><strong>Option A &mdash; Use the garbled folder as-is (fastest)</strong></p>
+      <p style="font-size:13px;color:#1a1f21;">Open the garbled folder in File Explorer and place <code>claude_desktop_config.json</code> inside it. Claude Desktop reads from the folder it created, not necessarily from a folder named exactly <code>Claude</code>.</p>
+      <p style="font-size:13px;margin-top:12px;margin-bottom:6px;"><strong>Option B &mdash; Reinstall cleanly (permanent fix)</strong></p>
+      <ol>
+        <li>Uninstall Claude Desktop from <strong>Settings &rarr; Apps</strong></li>
+        <li>Press <span class="kbd">Win</span> + <span class="kbd">R</span> &rarr; <code>%APPDATA%</code> &rarr; delete all folders starting with <code>Claude</code></li>
+        <li>Download a fresh installer from <a href="https://claude.ai/download" target="_blank">claude.ai/download</a> and run it</li>
+        <li>The clean install should create a standard <code>Claude</code> folder without any suffix</li>
+      </ol>
+    </div>
+
     <div class="card">
       <div class="ctitle">Edit in Notepad</div>
       <span class="ac npad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Notepad (built into Windows)</span>
@@ -497,6 +595,29 @@ npm --version</pre></div>
     <div class="sb"><div class="sl">Fix</div><div class="stit">OAuth login was never completed &mdash; no token was saved</div><span class="ac claud" style="margin-top:8px;display:inline-flex;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="3"/></svg>Claude Desktop &mdash; type in chat</span><div class="cb" style="margin-top:8px;"><div class="cbh"><span class="cbl t">claude prompt</span></div><pre>Call reauthenticate</pre></div><p style="font-size:13px;color:#1a1f21;">Complete the full Google login. Do not close the browser early.</p></div>
     <div class="eb"><div class="el">Error 04 &mdash; Invalid JSON Escape</div><div class="etitle">1 validation error for JSONRPCMessage &mdash; Invalid JSON escape</div><div class="emsg">Invalid JSON: invalid escape at line 1 column 5 [type=json_invalid, input_value='"C:\\Users\\Vishal Kumar...']</div></div>
     <div class="sb"><div class="sl">Fix</div><div class="stit">When running from Command Prompt, wrap the full path in quotes</div><div class="cb" style="margin-top:8px;"><div class="cbh"><span class="cbl">cmd &mdash; correct way</span><button class="cpb" onclick="cp(this,'\"C:\\Users\\YOUR_USERNAME\\.local\\bin\\uvx.exe\" mcp-search-console')">Copy</button></div><pre>"C:\Users\YOUR_USERNAME\.local\bin\uvx.exe" mcp-search-console</pre></div></div>
+    <div class="eb"><div class="el">Error 05 &mdash; Wrong App (Claude.ai)</div><div class="etitle">I don't see a "gsc-deep" connector available in the MCP registry</div><div class="emsg">Claude responded: I don't see a "gsc-deep" connector available in the MCP registry. There is no Google Search Console connector currently connected to your account either.</div></div>
+    <div class="sb"><div class="sl">Fix</div><div class="stit">You are using Claude.ai (browser) instead of Claude Desktop (installed app)</div>
+      <p style="font-size:13px;color:#1a1f21;margin-bottom:10px;">gsc-deep and gsc-multi are <strong>local MCP servers</strong> that run on your computer. Claude.ai in the browser has no access to anything on your local machine and will never find these MCPs regardless of how many times you try.</p>
+      <ol>
+        <li>Download and install <strong>Claude Desktop</strong> from <a href="https://claude.ai/download" target="_blank">claude.ai/download</a> if you have not already</li>
+        <li>Open the <strong>Claude Desktop app</strong> from your Start menu or taskbar (it looks like a small Claude icon, not a browser tab)</li>
+        <li>Confirm you have added the config correctly at <code>%APPDATA%\Claude\claude_desktop_config.json</code></li>
+        <li>Fully quit and reopen Claude Desktop after any config change</li>
+        <li>Type your prompt in the Claude Desktop chat window, not in any browser</li>
+      </ol>
+      <div class="ib" style="margin-top:10px;"><strong>How to tell which app you are in:</strong> Claude Desktop shows a small hammer icon (&#128296;) or tool-count badge near the message input box when MCPs are loaded. Claude.ai in the browser never shows this.</div>
+    </div>
+    <div class="eb"><div class="el">Error 06 &mdash; Wrong App (list properties)</div><div class="etitle">It looks like the Search Console MCP is not currently connected to your session</div><div class="emsg">Claude responded: The tools I have available are Google Drive, Gmail, Canva, Supermetrics, and Firecrawl, but not a dedicated Search Console MCP integration.</div></div>
+    <div class="sb"><div class="sl">Fix</div><div class="stit">Same root cause as Error 05 &mdash; you are in the wrong app</div>
+      <p style="font-size:13px;color:#1a1f21;margin-bottom:10px;">When Claude lists connectors like "Google Drive, Gmail, Canva, Supermetrics, Firecrawl" as its available tools, you are in <strong>Claude.ai (browser)</strong>. Those are cloud connectors for the web app. They are completely separate from local MCP servers in Claude Desktop.</p>
+      <p style="font-size:13px;color:#1a1f21;margin-bottom:10px;"><strong>Quick checklist to confirm you are in Claude Desktop:</strong></p>
+      <ol>
+        <li>Look at your taskbar or system tray &mdash; Claude Desktop shows as a standalone app icon, not a browser tab</li>
+        <li>In Claude Desktop, go to <strong>Settings &rarr; Developer</strong> (or check the chat input area) &mdash; you should see your MCP servers listed under "Model Context Protocol"</li>
+        <li>If gsc-deep or gsc-multi do not appear there, the config file is either missing, in the wrong location, or has a syntax error &mdash; go back to Step 04</li>
+        <li>After fixing the config, always do a full quit from the system tray before reopening</li>
+      </ol>
+    </div>
   </div>
   <div class="div"></div>
 
