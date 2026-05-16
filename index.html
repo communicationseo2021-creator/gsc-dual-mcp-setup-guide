@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GSC Dual MCP Setup Guide — Windows</title>
+<title>GSC + GA Triple MCP Setup Guide — Windows</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -15,14 +15,14 @@
   --text:#1a1f21;--muted:#425A63;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;}
-p{font-size:14px;color:var(--text);}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;}
+p{font-size:15.5px;color:var(--text);}
 strong{color:#1a1f21;font-weight:600;}
 a{color:var(--copper);text-decoration:none;}
 a:hover{text-decoration:underline;color:var(--cerulean);}
-ol,ul{padding-left:20px;}
-ol li,ul li{margin-bottom:8px;font-size:14px;color:var(--text);}
-ol li::marker{color:var(--copper);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;}
+ol,ul{padding-left:22px;}
+ol li,ul li{margin-bottom:9px;font-size:15.5px;color:var(--text);}
+ol li::marker{color:var(--copper);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;}
 
 .hero{background:linear-gradient(135deg,var(--fiord) 0%,#2d4a56 55%,#1e3a45 100%);padding:48px 40px 40px;position:relative;overflow:hidden;border-bottom:1px solid var(--border-strong);}
 .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(0,189,211,.15) 0%,transparent 70%);pointer-events:none;}
@@ -40,27 +40,29 @@ ol li::marker{color:var(--copper);font-family:'JetBrains Mono',monospace;font-si
 
 .tab-bar{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(66,90,99,.06);}
 .tab-bar-inner{max-width:960px;margin:0 auto;display:flex;padding:0 32px;}
-.tb{display:flex;align-items:center;gap:9px;padding:15px 22px;border:none;background:none;cursor:pointer;font-family:'Syne',sans-serif;font-size:14px;font-weight:600;color:var(--storm);border-bottom:3px solid transparent;transition:all .15s;white-space:nowrap;}
-.tb svg{width:15px;height:15px;flex-shrink:0;}
+.tb{display:flex;align-items:center;gap:10px;padding:16px 22px;border:none;background:none;cursor:pointer;font-family:'Syne',sans-serif;font-size:15.5px;font-weight:600;color:var(--storm);border-bottom:3px solid transparent;transition:all .15s;white-space:nowrap;}
+.tb svg{width:17px;height:17px;flex-shrink:0;}
 .tb:hover{color:var(--fiord);background:var(--surface2);}
 .tb.ad{color:#007a8a;border-bottom-color:var(--cerulean);background:rgba(0,189,211,.04);}
 .tb.am{color:#004fa3;border-bottom-color:var(--copper);background:rgba(0,150,239,.04);}
 .tb.ab{color:#5b3fa6;border-bottom-color:var(--purple);background:rgba(124,92,191,.04);}
-.tb-bdg{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:500;transition:all .15s;}
-.tb:not(.ad):not(.am):not(.ab) .tb-bdg{background:var(--surface2);color:var(--storm);}
+.tb.ag{color:#a05000;border-bottom-color:var(--orange);background:rgba(224,123,32,.04);}
+.tb-bdg{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:3px 10px;border-radius:10px;font-weight:500;transition:all .15s;}
+.tb:not(.ad):not(.am):not(.ab):not(.ag) .tb-bdg{background:var(--surface2);color:var(--storm);}
 .tb.ad .tb-bdg{background:rgba(0,189,211,.12);color:#007a8a;}
 .tb.am .tb-bdg{background:rgba(0,150,239,.12);color:#004fa3;}
 .tb.ab .tb-bdg{background:rgba(124,92,191,.12);color:#5b3fa6;}
+.tb.ag .tb-bdg{background:rgba(224,123,32,.12);color:#a05000;}
 
 .wrap{max-width:960px;margin:0 auto;padding:32px 32px 80px;}
 .panel{display:none;}
 .panel.show{display:block;}
 
-.cfg-ban{background:#fff;border:1.5px solid rgba(0,150,239,.22);border-radius:14px;padding:24px 28px;margin-bottom:28px;box-shadow:0 1px 4px rgba(66,90,99,.06);}
-.cfg-ban h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:#1a1f21;margin-bottom:5px;}
-.cfg-ban .csub{font-size:13.5px;color:var(--text);margin-bottom:14px;}
-.cfg-tags{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
-.ctg{display:inline-flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:3px 10px;border-radius:5px;font-weight:500;}
+.cfg-ban{background:#fff;border:1.5px solid rgba(0,150,239,.22);border-radius:14px;padding:26px 30px;margin-bottom:30px;box-shadow:0 1px 4px rgba(66,90,99,.06);}
+.cfg-ban h3{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;color:#1a1f21;margin-bottom:7px;}
+.cfg-ban .csub{font-size:15px;color:var(--text);margin-bottom:16px;}
+.cfg-tags{display:flex;gap:9px;margin-bottom:14px;flex-wrap:wrap;}
+.ctg{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 12px;border-radius:5px;font-weight:500;}
 .ctg.d{background:rgba(0,189,211,.1);color:#007a8a;border:1px solid rgba(0,189,211,.3);}
 .ctg.m{background:rgba(0,150,239,.1);color:#004fa3;border:1px solid rgba(0,150,239,.3);}
 .ctg .cd{width:5px;height:5px;border-radius:50%;}
@@ -69,19 +71,29 @@ ol li::marker{color:var(--copper);font-family:'JetBrains Mono',monospace;font-si
 
 .section{margin-bottom:36px;}
 .shd{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px;}
-.sn{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;border-radius:8px;padding:5px 12px;white-space:nowrap;margin-top:4px;flex-shrink:0;}
+.sn{font-family:'Syne',sans-serif;font-size:13.5px;font-weight:700;border-radius:8px;padding:6px 14px;white-space:nowrap;margin-top:5px;flex-shrink:0;}
 .sn.t{color:#007a8a;background:rgba(0,189,211,.09);border:1px solid rgba(0,189,211,.25);}
 .sn.b{color:#004fa3;background:rgba(0,150,239,.09);border:1px solid rgba(0,150,239,.25);}
 .sn.p{color:#5b3fa6;background:rgba(124,92,191,.09);border:1px solid rgba(124,92,191,.25);}
 .sn.e{color:#b83333;background:rgba(217,68,68,.08);border:1px solid rgba(217,68,68,.22);}
-.stitle{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:#1a1f21;line-height:1.2;}
-.ssub{font-size:13px;color:var(--muted);margin-top:4px;}
+.sn.g{color:#a05000;background:rgba(224,123,32,.09);border:1px solid rgba(224,123,32,.25);}
+.cbl.g{color:#ffba7a;}
+.pmcp.g{background:rgba(224,123,32,.1);color:#a05000;border:1px solid rgba(224,123,32,.25);}
+.fbdg.g{background:rgba(224,123,32,.12);color:#a05000;border:1px solid rgba(224,123,32,.3);}
+.ctg.g{background:rgba(224,123,32,.1);color:#a05000;border:1px solid rgba(224,123,32,.3);}
+.ctg.g .cd{background:var(--orange);}
+.hp.g{background:rgba(224,123,32,.12);border-color:rgba(224,123,32,.35);color:#ffd2a3;}
+.hp.g .dot{background:var(--orange);}
+.usebox.ga{border-color:rgba(224,123,32,.30);background:linear-gradient(135deg,rgba(224,123,32,.05),rgba(224,123,32,.01));}
+.usebox.ga .ubadge{background:rgba(224,123,32,.14);color:#a05000;border:1px solid rgba(224,123,32,.32);}
+.stitle{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:#1a1f21;line-height:1.25;}
+.ssub{font-size:15px;color:var(--muted);margin-top:5px;}
 
-.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:12px;box-shadow:0 1px 3px rgba(66,90,99,.05);}
-.ctitle{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#1a1f21;margin-bottom:12px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:14px;box-shadow:0 1px 3px rgba(66,90,99,.05);}
+.ctitle{font-family:'Syne',sans-serif;font-size:16.5px;font-weight:700;color:#1a1f21;margin-bottom:13px;}
 
-.ac{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;padding:5px 11px 5px 9px;border-radius:20px;margin-bottom:7px;border:1px solid;font-family:'DM Sans',sans-serif;}
-.ac svg{width:13px;height:13px;flex-shrink:0;}
+.ac{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;padding:6px 13px 6px 10px;border-radius:20px;margin-bottom:8px;border:1px solid;font-family:'DM Sans',sans-serif;}
+.ac svg{width:15px;height:15px;flex-shrink:0;}
 .ac.cmd{background:#161614;color:#7de8a8;border-color:#2e2e2a;}
 .ac.npad{background:rgba(0,150,239,.08);color:#003e85;border-color:rgba(0,150,239,.25);}
 .ac.expl{background:rgba(224,123,32,.07);color:#7a3f00;border-color:rgba(224,123,32,.25);}
@@ -89,67 +101,67 @@ ol li::marker{color:var(--copper);font-family:'JetBrains Mono',monospace;font-si
 .ac.claud{background:var(--surface2);color:#1a1f21;border-color:var(--border-strong);}
 .ac.gcl{background:rgba(0,168,107,.07);color:#004d30;border-color:rgba(0,168,107,.25);}
 
-.ho{font-size:12.5px;color:#1a1f21;margin-bottom:10px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
-.ho strong{color:#1a1f21;font-weight:500;}
-.kbd{display:inline-block;background:#fff;border:1px solid var(--border-strong);border-bottom:2px solid var(--border-strong);border-radius:4px;padding:1px 7px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#1a1f21;line-height:1.7;}
+.ho{font-size:14.5px;color:#1a1f21;margin-bottom:12px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.ho strong{color:#1a1f21;font-weight:600;}
+.kbd{display:inline-block;background:#fff;border:1px solid var(--border-strong);border-bottom:2px solid var(--border-strong);border-radius:4px;padding:2px 8px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#1a1f21;line-height:1.7;}
 
-.cb{background:var(--fiord);border:1px solid #364f59;border-radius:10px;overflow:hidden;margin:11px 0;}
-.cbh{display:flex;align-items:center;justify-content:space-between;padding:8px 15px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.18);}
-.cbl{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;}
+.cb{background:var(--fiord);border:1px solid #364f59;border-radius:10px;overflow:hidden;margin:13px 0;}
+.cbh{display:flex;align-items:center;justify-content:space-between;padding:9px 16px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.18);}
+.cbl{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;}
 .cbl.t{color:var(--cerulean);}
 .cbl.b{color:#7dceff;}
 .cbl.p{color:#c4b4ef;}
-.cpb{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);background:none;border:1px solid rgba(255,255,255,.18);padding:3px 10px;border-radius:4px;cursor:pointer;transition:all .15s;}
+.cpb{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:rgba(255,255,255,.5);background:none;border:1px solid rgba(255,255,255,.22);padding:4px 12px;border-radius:4px;cursor:pointer;transition:all .15s;}
 .cpb:hover{color:var(--cerulean);border-color:var(--cerulean);}
 .cpb.ok{color:#6fcf97;border-color:rgba(111,207,151,.4);}
-.cb pre{padding:13px 17px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.75;color:#c9d8e0;white-space:pre-wrap;word-break:break-all;}
+.cb pre{padding:15px 19px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.8;color:#d6e3eb;white-space:pre-wrap;word-break:break-all;}
 .cb pre .k{color:var(--cerulean);}
 .cb pre .s{color:#c3e88d;}
-.cb pre .c{color:rgba(255,255,255,.3);font-style:italic;}
+.cb pre .c{color:rgba(255,255,255,.35);font-style:italic;}
 
-code{font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(0,150,239,.07);color:#003e85;padding:2px 6px;border-radius:4px;border:1px solid rgba(0,150,239,.14);}
+code{font-family:'JetBrains Mono',monospace;font-size:13.5px;background:rgba(0,150,239,.07);color:#003e85;padding:2px 7px;border-radius:4px;border:1px solid rgba(0,150,239,.14);}
 
-.ib{background:rgba(0,189,211,.05);border:1px solid rgba(0,189,211,.22);border-radius:9px;padding:13px 17px;margin:11px 0;font-size:13px;color:#005a66;}
-.wb{background:rgba(224,123,32,.05);border:1px solid rgba(224,123,32,.22);border-left:3px solid var(--orange);border-radius:9px;padding:13px 17px;margin:11px 0;font-size:13px;color:#6b3800;}
+.ib{background:rgba(0,189,211,.05);border:1px solid rgba(0,189,211,.22);border-radius:9px;padding:15px 18px;margin:12px 0;font-size:15px;color:#005a66;}
+.wb{background:rgba(224,123,32,.05);border:1px solid rgba(224,123,32,.22);border-left:3px solid var(--orange);border-radius:9px;padding:15px 18px;margin:12px 0;font-size:15px;color:#6b3800;}
 .wb strong{color:#7a3f00;}
-.ob{background:rgba(0,168,107,.05);border:1px solid rgba(0,168,107,.22);border-left:3px solid var(--green);border-radius:9px;padding:13px 17px;margin:11px 0;font-size:13px;color:#003d22;}
-.eb{background:rgba(217,68,68,.04);border:1px solid rgba(217,68,68,.18);border-left:3px solid var(--red);border-radius:10px;padding:16px 20px;margin-bottom:12px;}
-.el{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--red);margin-bottom:6px;display:flex;align-items:center;gap:5px;}
+.ob{background:rgba(0,168,107,.05);border:1px solid rgba(0,168,107,.22);border-left:3px solid var(--green);border-radius:9px;padding:15px 18px;margin:12px 0;font-size:15px;color:#003d22;}
+.eb{background:rgba(217,68,68,.04);border:1px solid rgba(217,68,68,.18);border-left:3px solid var(--red);border-radius:10px;padding:18px 22px;margin-bottom:14px;}
+.el{font-family:'JetBrains Mono',monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--red);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
 .el::before{content:'⚠ ';font-size:12px;}
-.etitle{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#8b1f1f;margin-bottom:6px;}
-.emsg{font-family:'JetBrains Mono',monospace;font-size:11px;color:#9b2c2c;background:rgba(217,68,68,.06);border:1px solid rgba(217,68,68,.12);padding:9px 13px;border-radius:6px;margin:8px 0;line-height:1.6;word-break:break-all;}
-.sb{background:rgba(0,168,107,.04);border:1px solid rgba(0,168,107,.18);border-left:3px solid var(--green);border-radius:10px;padding:16px 20px;margin-bottom:12px;}
-.sl{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin-bottom:6px;display:flex;align-items:center;gap:5px;}
+.etitle{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:#8b1f1f;margin-bottom:8px;}
+.emsg{font-family:'JetBrains Mono',monospace;font-size:13px;color:#9b2c2c;background:rgba(217,68,68,.06);border:1px solid rgba(217,68,68,.12);padding:11px 15px;border-radius:6px;margin:10px 0;line-height:1.65;word-break:break-all;}
+.sb{background:rgba(0,168,107,.04);border:1px solid rgba(0,168,107,.18);border-left:3px solid var(--green);border-radius:10px;padding:18px 22px;margin-bottom:14px;}
+.sl{font-family:'JetBrains Mono',monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
 .sl::before{content:'✓';font-size:12px;}
-.stit{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#004d30;margin-bottom:6px;}
+.stit{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:#004d30;margin-bottom:8px;}
 
 .div{height:1px;background:var(--border);margin:32px 0;}
 
-.toc{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:24px;}
-.ta{display:flex;align-items:center;gap:6px;padding:6px 12px;background:var(--surface);border:1px solid var(--border);border-radius:7px;text-decoration:none;color:#1a1f21;font-size:13px;transition:all .15s;}
+.toc{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;}
+.ta{display:flex;align-items:center;gap:7px;padding:8px 14px;background:var(--surface);border:1px solid var(--border);border-radius:7px;text-decoration:none;color:#1a1f21;font-size:14.5px;transition:all .15s;}
 .ta:hover{border-color:var(--copper);color:#004fa3;text-decoration:none;}
-.tn{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--copper);font-weight:600;min-width:20px;}
+.tn{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--copper);font-weight:600;min-width:22px;}
 
 .ps{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 1px 4px rgba(66,90,99,.06);}
-.psh{padding:20px 26px;border-bottom:1px solid var(--border);}
-.psh h2{font-family:'Syne',sans-serif;font-size:19px;font-weight:800;color:#1a1f21;}
-.psh p{font-size:13px;color:#1a1f21;margin-top:3px;}
-.psg{padding:18px 26px;display:grid;gap:9px;}
-.pc{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;cursor:pointer;transition:all .15s;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+.psh{padding:22px 28px;border-bottom:1px solid var(--border);}
+.psh h2{font-family:'Syne',sans-serif;font-size:21px;font-weight:800;color:#1a1f21;}
+.psh p{font-size:15px;color:#1a1f21;margin-top:5px;}
+.psg{padding:20px 28px;display:grid;gap:10px;}
+.pc{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:15px 17px;cursor:pointer;transition:all .15s;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;}
 .pc:hover{border-color:var(--copper);box-shadow:0 0 0 3px rgba(0,150,239,.07);}
-.pt{font-size:13px;color:#1a1f21;font-style:italic;flex:1;line-height:1.5;}
-.pm{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0;}
-.pmcp{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 8px;border-radius:4px;white-space:nowrap;}
+.pt{font-size:14.5px;color:#1a1f21;font-style:italic;flex:1;line-height:1.55;}
+.pm{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
+.pmcp{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:3px 10px;border-radius:4px;white-space:nowrap;}
 .pmcp.d{background:rgba(0,189,211,.1);color:#007a8a;border:1px solid rgba(0,189,211,.25);}
 .pmcp.m{background:rgba(0,150,239,.1);color:#004fa3;border:1px solid rgba(0,150,239,.25);}
 .pmcp.bth{background:rgba(124,92,191,.1);color:#5b3fa6;border:1px solid rgba(124,92,191,.25);}
-.pcp{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.pcp{font-size:12.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;white-space:nowrap;}
 
-.bf{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
-.bfc{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;}
-.bfc h4{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#1a1f21;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
-.bfc p{font-size:13px;color:#1a1f21;}
-.fbdg{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 8px;border-radius:4px;}
+.bf{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0;}
+.bfc{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px 20px;}
+.bfc h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#1a1f21;margin-bottom:11px;display:flex;align-items:center;gap:9px;}
+.bfc p{font-size:14.5px;color:#1a1f21;}
+.fbdg{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:3px 10px;border-radius:4px;}
 .fbdg.d{background:rgba(0,189,211,.12);color:#007a8a;border:1px solid rgba(0,189,211,.3);}
 .fbdg.m{background:rgba(0,150,239,.12);color:#004fa3;border:1px solid rgba(0,150,239,.3);}
 
@@ -159,14 +171,14 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(0,150
 
 /* ===== Username banner ===== */
 .uname-bar{background:linear-gradient(90deg,rgba(0,150,239,.08) 0%,rgba(0,189,211,.06) 100%);border-bottom:2px solid rgba(0,150,239,.22);padding:14px 32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.uname-bar label{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#1a1f21;white-space:nowrap;}
-.uname-bar .uname-hint{font-size:12px;color:var(--muted);}
-.uname-in-wrap{display:flex;align-items:center;gap:10px;flex:1;min-width:220px;max-width:360px;}
-#globalUsername{flex:1;padding:8px 13px;border:1.5px solid var(--border-strong);border-radius:7px;font-size:13px;font-family:'JetBrains Mono',monospace;background:#fff;color:#1a1f21;transition:border-color .15s;}
+.uname-bar label{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#1a1f21;white-space:nowrap;}
+.uname-bar .uname-hint{font-size:14px;color:var(--muted);}
+.uname-in-wrap{display:flex;align-items:center;gap:10px;flex:1;min-width:240px;max-width:380px;}
+#globalUsername{flex:1;padding:9px 14px;border:1.5px solid var(--border-strong);border-radius:7px;font-size:15px;font-family:'JetBrains Mono',monospace;background:#fff;color:#1a1f21;transition:border-color .15s;}
 #globalUsername:focus{outline:none;border-color:var(--copper);box-shadow:0 0 0 3px rgba(0,150,239,.08);}
-.uname-status{font-size:11.5px;font-family:'JetBrains Mono',monospace;color:var(--green);display:none;}
+.uname-status{font-size:13px;font-family:'JetBrains Mono',monospace;color:var(--green);display:none;}
 .uname-status.show{display:inline;}
-.uname-bar .cmd-hint{font-size:12px;color:var(--muted);background:rgba(0,0,0,.04);border:1px solid var(--border);border-radius:5px;padding:3px 9px;font-family:'JetBrains Mono',monospace;}
+.uname-bar .cmd-hint{font-size:13.5px;color:var(--muted);background:rgba(0,0,0,.04);border:1px solid var(--border);border-radius:5px;padding:4px 10px;font-family:'JetBrains Mono',monospace;}
 
 @media(max-width:640px){
   .hero,.wrap{padding-left:18px;padding-right:18px;}
@@ -180,17 +192,17 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(0,150
 .usebox{border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:24px;box-shadow:0 1px 3px rgba(66,90,99,.04);}
 .usebox.deep{border-color:rgba(0,189,211,.30);background:linear-gradient(135deg,rgba(0,189,211,.05),rgba(0,189,211,.01));}
 .usebox.multi{border-color:rgba(0,150,239,.28);background:linear-gradient(135deg,rgba(0,150,239,.05),rgba(0,150,239,.01));}
-.usebox h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#1a1f21;margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
-.usebox .ubadge{font-family:'JetBrains Mono',monospace;font-size:10px;padding:3px 9px;border-radius:5px;font-weight:500;letter-spacing:.04em;}
+.usebox h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#1a1f21;margin-bottom:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.usebox .ubadge{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:4px 10px;border-radius:5px;font-weight:500;letter-spacing:.04em;}
 .usebox.deep .ubadge{background:rgba(0,189,211,.14);color:#007a8a;border:1px solid rgba(0,189,211,.32);}
 .usebox.multi .ubadge{background:rgba(0,150,239,.14);color:#004fa3;border:1px solid rgba(0,150,239,.32);}
-.usebox .usub{font-size:13.5px;color:#1a1f21;margin-bottom:16px;line-height:1.6;}
-.usegrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
-.uitem{background:#fff;border:1px solid var(--border);border-radius:9px;padding:13px 15px;}
-.uitem h4{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#1a1f21;margin-bottom:8px;letter-spacing:-0.005em;}
-.uitem ul{margin:0;padding-left:16px;}
-.uitem li{font-size:12px;color:#1a1f21;margin-bottom:4px;line-height:1.5;}
-.uitem li::marker{color:var(--storm);font-size:10px;}
+.usebox .usub{font-size:15px;color:#1a1f21;margin-bottom:18px;line-height:1.65;}
+.usegrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.uitem{background:#fff;border:1px solid var(--border);border-radius:9px;padding:15px 17px;}
+.uitem h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#1a1f21;margin-bottom:10px;letter-spacing:-0.005em;}
+.uitem ul{margin:0;padding-left:18px;}
+.uitem li{font-size:14px;color:#1a1f21;margin-bottom:6px;line-height:1.55;}
+.uitem li::marker{color:var(--storm);font-size:12px;}
 @media(max-width:880px){.usegrid{grid-template-columns:1fr 1fr;}}
 @media(max-width:560px){.usegrid{grid-template-columns:1fr;}}
 
@@ -215,12 +227,13 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(0,150
 <body>
 
 <div class="hero">
-  <div class="hero-badge">Windows Setup Guide &mdash; Dual MCP</div>
-  <h1>Google Search Console<br><span>Dual MCP for Claude Desktop</span></h1>
-  <p class="hero-sub">Two MCP servers running side by side &mdash; deep per-site analytics AND multi-account management, both accessible in a single Claude Desktop chat.</p>
+  <div class="hero-badge">Windows Setup Guide &mdash; Triple MCP</div>
+  <h1>Google Search Console + Analytics<br><span>Triple MCP for Claude Desktop</span></h1>
+  <p class="hero-sub">Three MCP servers running side by side &mdash; deep per-site SEO analytics, multi-account GSC management, AND Google Analytics 4 &mdash; all accessible in a single Claude Desktop chat.</p>
   <div class="hero-pills">
-    <div class="hp d"><span class="dot"></span> gsc-deep &mdash; Deep analytics via uvx + OAuth credentials</div>
-    <div class="hp m"><span class="dot"></span> gsc-multi &mdash; Multi-account via node, built-in OAuth</div>
+    <div class="hp d"><span class="dot"></span> gsc-deep &mdash; Deep SEO analytics via uvx + OAuth credentials</div>
+    <div class="hp m"><span class="dot"></span> gsc-multi &mdash; Multi-account GSC via node, built-in OAuth</div>
+    <div class="hp g"><span class="dot"></span> analytics-mcp &mdash; Google Analytics 4 via Python + gcloud ADC</div>
   </div>
 </div>
 
@@ -261,9 +274,13 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(0,150
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       MCP Multi Accounts <span class="tb-bdg">gsc-multi</span>
     </button>
+    <button class="tb" id="tb-ga" onclick="sw('ga')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 21 6"/></svg>
+      MCP Google Analytics <span class="tb-bdg">analytics-mcp</span>
+    </button>
     <button class="tb" id="tb-both" onclick="sw('both')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      Both MCPs Together <span class="tb-bdg">combined</span>
+      All MCPs Together <span class="tb-bdg">combined</span>
     </button>
   </div>
 </div>
@@ -272,11 +289,12 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(0,150
 
 <!-- ========================== PLACEHOLDER LEGEND (shown on every tab) ========================== -->
 <div class="wb" style="margin-bottom:20px;">
-  <strong>Before you start &mdash; enter your Windows username above and three placeholders will auto-fill:</strong>
+  <strong>Before you start &mdash; enter your Windows username above and four placeholders will auto-fill or be ready to swap:</strong>
   <ul style="margin-top:8px;margin-bottom:0;padding-left:22px;">
     <li><code>YOUR_USERNAME</code> &mdash; enter it in the field at the top. All paths update instantly. To find it, open Command Prompt and run <code>echo %USERNAME%</code>.</li>
-    <li><code>your-google-email@gmail.com</code> &mdash; the Gmail you want to authenticate with Google Search Console. Use the same address you use when signing into <a href="https://search.google.com/search-console" target="_blank">search.google.com/search-console</a>.</li>
-    <li><code>YOUR_ALIAS</code> &mdash; (gsc-multi only) the short nickname you give each Google account when running <code>gsc-mcp-auth --alias &lt;name&gt;</code>. Lowercase letters, digits, hyphens, underscores only &mdash; no spaces, no <code>@</code>. Example aliases: <code>account1</code>, <code>client-acme</code>, <code>personal</code>.</li>
+    <li><code>your-google-email@gmail.com</code> &mdash; the Gmail you want to authenticate with Google Search Console and Google Analytics. Use the same address you use when signing into <a href="https://search.google.com/search-console" target="_blank">search.google.com/search-console</a>.</li>
+    <li><code>YOUR_ALIAS</code> &mdash; (gsc-multi only) the short nickname for each Google account when running <code>gsc-mcp-auth --alias &lt;name&gt;</code>. Lowercase letters, digits, hyphens, underscores only &mdash; no spaces, no <code>@</code>. Examples: <code>account1</code>, <code>client-acme</code>, <code>personal</code>.</li>
+    <li><code>YOUR_GCP_PROJECT_ID</code> &mdash; (analytics-mcp only) your Google Cloud project ID. Find it at <a href="https://console.cloud.google.com" target="_blank">console.cloud.google.com</a> top-bar project picker, or run <code>gcloud config get-value project</code> in PowerShell. Reuse the same project you used for gsc-deep.</li>
   </ul>
   <p style="margin-top:10px;margin-bottom:0;font-size:12.5px;"><strong>Important:</strong> the JSON config file does <em>not</em> expand environment variables &mdash; <code>%USERPROFILE%</code> and <code>~</code> are interpreted literally. You must write the full path with your real username.</p>
 </div>
@@ -954,14 +972,538 @@ Set-Content "$d\index.js" -Value $b -NoNewline
   </div>
 </div>
 
+<!-- ========================== PANEL: analytics-mcp (Google Analytics) ========================== -->
+<div class="panel" id="panel-ga">
+  <div class="usebox ga">
+    <h3>What you can ask analytics-mcp to do <span class="ubadge">analytics-mcp</span></h3>
+    <p class="usub">Read-only access to your Google Analytics 4 properties &mdash; traffic, conversions, audience, realtime, and Google Ads links &mdash; across every GA4 account the authenticated Gmail can see. Powered by the official <a href="https://github.com/googleanalytics/google-analytics-mcp" target="_blank">googleanalytics/google-analytics-mcp</a>.</p>
+    <div class="ob" style="margin-bottom:0;"><strong>&#127942; Easy mode &mdash; you can reference properties by domain name OR by Property ID.</strong> Try the domain first (<em>"for example.com"</em>) &mdash; Claude looks up the matching property automatically. If Claude can't find a match (the GA4 display name has no domain in it), fall back to the 9-digit Property ID instead (<em>"for property 503056070"</em>). Both work everywhere in the chat.</div>
+    <div class="usegrid">
+      <div class="uitem">
+        <h4>Account &amp; property overview</h4>
+        <ul>
+          <li>List every GA4 account and property under your Gmail</li>
+          <li>Property metadata: timezone, currency, industry</li>
+          <li>Find which property is bound to a domain</li>
+          <li>Audit access across many properties at once</li>
+          <li>Surface property-level annotations</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Traffic &amp; engagement</h4>
+        <ul>
+          <li>Sessions, users, pageviews for any date range</li>
+          <li>Top landing pages, sources, mediums, campaigns</li>
+          <li>Device, country, browser breakdowns</li>
+          <li>Bounce rate, session duration, engagement rate</li>
+          <li>Year-over-year and period comparisons</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Conversions &amp; funnels</h4>
+        <ul>
+          <li>Run conversion reports for key events</li>
+          <li>Build funnel reports across multiple steps</li>
+          <li>Revenue, transactions, AOV breakdowns</li>
+          <li>Goal completion by source / medium</li>
+          <li>Compare conversion rates by device</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Realtime</h4>
+        <ul>
+          <li>Active users in the last 30 minutes</li>
+          <li>Realtime top pages, sources, countries</li>
+          <li>Live events firing right now</li>
+          <li>Spot live traffic spikes from a campaign push</li>
+          <li>Confirm a tracking change is firing</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Custom dimensions &amp; audience</h4>
+        <ul>
+          <li>List custom dimensions and metrics per property</li>
+          <li>New vs returning user splits</li>
+          <li>Audience-level segments and traits</li>
+          <li>Cohort retention analysis</li>
+          <li>Demographic breakdowns where consented</li>
+        </ul>
+      </div>
+      <div class="uitem">
+        <h4>Google Ads links</h4>
+        <ul>
+          <li>List linked Google Ads accounts per property</li>
+          <li>Find unlinked Ads accounts that should be linked</li>
+          <li>Audit ad spend &rarr; GA conversions attribution</li>
+          <li>Compare paid vs organic traffic in one chat</li>
+          <li>Spot misconfigured link settings</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <a href="#g1" class="ta"><span class="tn">01</span> Python</a>
+    <a href="#g2" class="ta"><span class="tn">02</span> gcloud CLI</a>
+    <a href="#g3" class="ta"><span class="tn">03</span> Project ID &amp; APIs</a>
+    <a href="#g4" class="ta"><span class="tn">04</span> Authenticate (ADC)</a>
+    <a href="#g5" class="ta"><span class="tn">05</span> Install analytics-mcp</a>
+    <a href="#g6" class="ta"><span class="tn">06</span> Edit Config File</a>
+    <a href="#g7" class="ta"><span class="tn">07</span> Restart Claude</a>
+    <a href="#guse" class="ta"><span class="tn">&#9679;</span> Use in chat</a>
+    <a href="#gswitch" class="ta"><span class="tn">&#8634;</span> Switch Account</a>
+    <a href="#gerr" class="ta"><span class="tn" style="color:var(--red)">&#9888; </span> Errors</a>
+    <a href="#gprompts" class="ta"><span class="tn">&#10026;</span> Test Prompts</a>
+  </div>
+
+  <div class="cfg-ban">
+    <h3>&#9881; Config for analytics-mcp only</h3>
+    <p class="csub">If you also want gsc-deep and gsc-multi, switch to the <strong>All MCPs Together</strong> tab for the merged config instead.</p>
+    <div class="cb">
+      <div class="cbh"><span class="cbl g">claude_desktop_config.json</span><button class="cpb" id="gcpy" onclick="cGA()">Copy</button></div>
+      <pre>{
+  <span class="k">"mcpServers"</span>: {
+    <span class="k">"analytics-mcp"</span>: {
+      <span class="c">// Google Analytics MCP &mdash; uses gcloud ADC, no separate token file</span>
+      <span class="k">"command"</span>: <span class="s">"C:\\Users\\YOUR_USERNAME\\AppData\\Roaming\\Python\\Python312\\Scripts\\analytics-mcp.exe"</span>,
+      <span class="k">"args"</span>: [],
+      <span class="k">"env"</span>: {
+        <span class="k">"GOOGLE_APPLICATION_CREDENTIALS"</span>: <span class="s">"C:\\Users\\YOUR_USERNAME\\AppData\\Roaming\\gcloud\\application_default_credentials.json"</span>,
+        <span class="k">"GOOGLE_PROJECT_ID"</span>: <span class="s">"YOUR_GCP_PROJECT_ID"</span>
+      }
+    }
+  }
+}</pre>
+    </div>
+    <div class="wb" style="margin-top:10px;margin-bottom:0;"><strong>Two placeholders to replace before saving:</strong> <code>YOUR_USERNAME</code> auto-fills from the username field at the top of the page. <code>YOUR_GCP_PROJECT_ID</code> is the project ID from Google Cloud Console &mdash; Step 03 below shows exactly where to find it.</div>
+  </div>
+
+  <div class="ib" style="margin-bottom:24px;">
+    <strong>&#128204; Reuse the same Google account and the same GCP project you used for gsc-deep.</strong>
+    The OAuth client (<code>client_secrets.json</code>) you already created for GSC works perfectly for GA &mdash; same project, same consent screen, same test users. You only need to enable two extra APIs and add the GA scope at login time. No second OAuth client needed.
+  </div>
+
+  <div class="wb" style="margin-bottom:24px;">
+    <strong>&#128187; This MCP only works inside Claude Desktop (the installed Windows app).</strong>
+    Don't try analytics-mcp in Claude.ai (browser), Claude on your phone, or any web tab &mdash; the MCP server runs locally on your PC and only the desktop app can reach it. Look for the Claude icon in your Start menu or system tray. If you don't have it yet, download from <a href="https://claude.ai/download" target="_blank">claude.ai/download</a>.
+  </div>
+
+  <div class="ib" style="margin-bottom:24px;">
+    <strong>&#128221; Two terminals you'll use in this guide &mdash; do not mix them up:</strong>
+    <ul style="margin-top:8px;margin-bottom:0;padding-left:22px;">
+      <li><strong>Windows PowerShell</strong> &mdash; the blue terminal. Open it with <span class="kbd">Win</span> + <span class="kbd">R</span> &rarr; type <span class="kbd">powershell</span> &rarr; press <span class="kbd">Enter</span>. <strong>Use this for everything in this guide</strong> &mdash; gcloud, pip, Test-Path, Set-ExecutionPolicy all need PowerShell.</li>
+      <li><strong>Command Prompt (cmd.exe)</strong> &mdash; the black terminal. Open it with <span class="kbd">Win</span> + <span class="kbd">R</span> &rarr; type <span class="kbd">cmd</span> &rarr; press <span class="kbd">Enter</span>. You only need this if a step explicitly says so (the <code>taskkill</code> step works in both).</li>
+    </ul>
+    <p style="margin-top:10px;margin-bottom:0;">Easy way to tell: PowerShell prompt looks like <code>PS C:\Users\You&gt;</code> with a blue background. Command Prompt looks like <code>C:\Users\You&gt;</code> with a black background.</p>
+  </div>
+
+  <!-- Step 01: Python -->
+  <div class="section" id="g1">
+    <div class="shd"><div class="sn g">Step 01</div><div><div class="stitle">Install Python 3.10 or newer</div><div class="ssub">analytics-mcp is a Python package. Installs to your user folder &mdash; no admin needed when using winget.</div></div></div>
+    <div class="card">
+      <div class="ctitle">Check if Python is already installed</div>
+      <span class="ac cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>Windows PowerShell (powershell.exe)</span>
+      <div class="ho"><strong>How to open PowerShell:</strong> Press <span class="kbd">Win</span> + <span class="kbd">R</span> &rarr; type <span class="kbd">powershell</span> &rarr; press <span class="kbd">Enter</span></div>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell</span><button class="cpb" onclick="cp(this,'python --version\npip --version')">Copy</button></div><pre>python --version
+pip --version</pre></div>
+      <p>If you see <code>Python 3.10.x</code> or higher plus a pip version, skip to Step 02. If PowerShell says "Python was not found" or it opens the Microsoft Store, install Python first using one of the options below.</p>
+    </div>
+    <div class="card">
+      <div class="ctitle">Option A &mdash; Install via winget <span style="font-size:11px;color:var(--muted);font-weight:normal;">(recommended &mdash; no admin, no UAC)</span></div>
+      <span class="ac cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>Windows PowerShell</span>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell</span><button class="cpb" onclick="cp(this,'winget install --id Python.Python.3.12 -e --accept-source-agreements --accept-package-agreements')">Copy</button></div><pre>winget install --id Python.Python.3.12 -e --accept-source-agreements --accept-package-agreements</pre></div>
+      <div class="wb" style="margin-top:10px;"><strong>After install, close every PowerShell and Command Prompt window and open a fresh one.</strong> The new PATH is only picked up by new terminal sessions. Then re-run <code>python --version</code> to verify.</div>
+    </div>
+    <div class="card">
+      <div class="ctitle">Option B &mdash; python.org installer (GUI)</div>
+      <ol>
+        <li>Download from <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a> &mdash; pick the latest 3.12 Windows installer (64-bit)</li>
+        <li>Run the <code>.exe</code> &mdash; <strong>&#9989; tick "Add python.exe to PATH"</strong> at the bottom of the first screen, then click <strong>Install Now</strong></li>
+        <li>Close all open terminal windows and open a fresh PowerShell to verify</li>
+      </ol>
+    </div>
+  </div>
+  <div class="div"></div>
+
+  <!-- Step 02: gcloud CLI -->
+  <div class="section" id="g2">
+    <div class="shd"><div class="sn g">Step 02</div><div><div class="stitle">Install Google Cloud CLI (gcloud)</div><div class="ssub">analytics-mcp authenticates through gcloud Application Default Credentials (ADC).</div></div></div>
+    <div class="card">
+      <div class="ctitle">Download and install Google Cloud SDK</div>
+      <span class="ac brws"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Browser &mdash; cloud.google.com</span>
+      <ol style="margin-top:10px;">
+        <li>Download the installer: <a href="https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe" target="_blank">GoogleCloudSDKInstaller.exe</a> (or visit <a href="https://cloud.google.com/sdk/docs/install" target="_blank">cloud.google.com/sdk/docs/install</a>)</li>
+        <li>Run the installer &mdash; accept defaults. The single-user install lands inside your user folder, so no admin / UAC is required.</li>
+        <li>At the end leave <strong>&#9989; Start Google Cloud SDK Shell</strong> ticked if you want a terminal to open automatically with gcloud already on PATH. If you untick it, just open a fresh PowerShell instead.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <div class="ctitle">Verify in PowerShell</div>
+      <span class="ac cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>Windows PowerShell</span>
+      <div class="ho"><strong>How to open:</strong> Press <span class="kbd">Win</span> + <span class="kbd">R</span> &rarr; type <span class="kbd">powershell</span> &rarr; press <span class="kbd">Enter</span></div>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell</span><button class="cpb" onclick="cp(this,'gcloud --version')">Copy</button></div><pre>gcloud --version</pre></div>
+      <p>Expected: SDK version banner. If PowerShell instead says "running scripts is disabled on this system", that's the execution policy blocking gcloud's PS1 wrapper. Fix it once with:</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell &mdash; one-time execution policy fix</span><button class="cpb" onclick="cp(this,'Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force')">Copy</button></div><pre>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force</pre></div>
+      <div class="ib" style="margin-top:8px;"><code>RemoteSigned</code> is Microsoft's recommended developer default &mdash; local scripts run, only unsigned scripts downloaded from the internet are blocked. After running this once, re-run <code>gcloud --version</code>.</div>
+    </div>
+  </div>
+  <div class="div"></div>
+
+  <!-- Step 03: Project ID + enable APIs -->
+  <div class="section" id="g3">
+    <div class="shd"><div class="sn g">Step 03</div><div><div class="stitle">Find Your Project ID &amp; Enable the GA APIs</div><div class="ssub">Reuse the SAME Google Cloud project you set up for gsc-deep &mdash; no new project needed.</div></div></div>
+
+    <div class="card">
+      <div class="ctitle">Find your GCP Project ID &mdash; where to look in the Cloud Console</div>
+      <span class="ac gcl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Browser &mdash; console.cloud.google.com</span>
+      <ol style="margin-top:10px;">
+        <li>Open <a href="https://console.cloud.google.com" target="_blank">console.cloud.google.com</a> &mdash; sign in with the SAME Gmail you used for gsc-deep</li>
+        <li>Click the <strong>project selector dropdown</strong> at the top of the page (next to the "Google Cloud" logo)</li>
+        <li>In the popup, the project you used for GSC appears in the list. The <strong>Project ID</strong> is shown in the second column &mdash; it usually looks like <code>my-project-12345</code> or <code>gsc-for-claude-496113</code>, NOT the display name</li>
+        <li>Copy the Project ID exactly &mdash; including all digits and any hyphens. This value goes into the config as <code>GOOGLE_PROJECT_ID</code></li>
+      </ol>
+      <div class="ib" style="margin-top:10px;"><strong>Faster way (from terminal):</strong> If gcloud is already pointed at your GSC project, this prints the Project ID directly:</div>
+      <div class="cb" style="margin-top:8px;"><div class="cbh"><span class="cbl g">powershell &mdash; print current project ID</span><button class="cpb" onclick="cp(this,'gcloud config get-value project')">Copy</button></div><pre>gcloud config get-value project</pre></div>
+      <p style="margin-top:8px;">If it prints <code>(unset)</code>, set it now using the Project ID you copied from the Console:</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell &mdash; set the default project</span><button class="cpb" onclick="cp(this,'gcloud config set project YOUR_GCP_PROJECT_ID')">Copy</button></div><pre>gcloud config set project YOUR_GCP_PROJECT_ID</pre></div>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">Enable the two Google Analytics APIs in this project</div>
+      <p>Click each link below, make sure the project selector at the top shows your GSC project, then click <strong>Enable</strong>:</p>
+      <ol style="margin-top:6px;">
+        <li><strong>Google Analytics Admin API</strong> &mdash; <a href="https://console.cloud.google.com/apis/library/analyticsadmin.googleapis.com" target="_blank">console.cloud.google.com/apis/library/analyticsadmin.googleapis.com</a></li>
+        <li><strong>Google Analytics Data API</strong> &mdash; <a href="https://console.cloud.google.com/apis/library/analyticsdata.googleapis.com" target="_blank">console.cloud.google.com/apis/library/analyticsdata.googleapis.com</a></li>
+      </ol>
+      <div class="ob" style="margin-top:10px;">The Search Console API was already enabled when you set up gsc-deep. Nothing new to enable for GSC.</div>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">Confirm your Gmail is still a test user</div>
+      <p>You should already be in the OAuth consent screen's Test Users list from gsc-deep Step 02. Verify at <a href="https://console.cloud.google.com/apis/credentials/consent" target="_blank">console.cloud.google.com/apis/credentials/consent</a> &mdash; project selected at top must match your <code>client_secrets.json</code>. If your Gmail isn't listed, click <strong>+ Add Users</strong> and add it.</p>
+      <div class="ib" style="margin-top:6px;">The <code>analytics.readonly</code> scope is classified by Google as <em>sensitive</em>. Test users on a Testing-mode consent screen can authorize sensitive scopes; everyone else hits the "This app is blocked" page.</div>
+    </div>
+  </div>
+  <div class="div"></div>
+
+  <!-- Step 04: Authenticate ADC -->
+  <div class="section" id="g4">
+    <div class="shd"><div class="sn g">Step 04</div><div><div class="stitle">Authenticate Google Analytics via ADC</div><div class="ssub">One gcloud command. Reuses your existing client_secrets.json. Adds GA + GSC scopes at once so a single login covers both MCPs.</div></div></div>
+
+    <div class="card">
+      <div class="ctitle">Run the combined auth command in PowerShell</div>
+      <span class="ac cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>Windows PowerShell</span>
+      <div class="ho"><strong>How to open:</strong> Press <span class="kbd">Win</span> + <span class="kbd">R</span> &rarr; type <span class="kbd">powershell</span> &rarr; press <span class="kbd">Enter</span></div>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell &mdash; covers GA + GSC + Cloud Platform in one go</span><button class="cpb" onclick="cp(this,'gcloud auth application-default login --client-id-file=&quot;C:\\Users\\YOUR_USERNAME\\Documents\\client_secrets.json&quot; --scopes=https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/webmasters.readonly,https://www.googleapis.com/auth/cloud-platform')">Copy</button></div><pre>gcloud auth application-default login --client-id-file="C:\Users\YOUR_USERNAME\Documents\client_secrets.json" --scopes=https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/webmasters.readonly,https://www.googleapis.com/auth/cloud-platform</pre></div>
+      <ol style="margin-top:10px;">
+        <li>A browser window opens &mdash; sign in with the <strong>same Gmail</strong> you use for Google Search Console</li>
+        <li>You'll see a <strong>"Google hasn't verified this app"</strong> warning (your OAuth client is in Testing mode &mdash; expected). Click <strong>Advanced</strong> &rarr; <strong>Go to [app name] (unsafe)</strong></li>
+        <li>On the scopes screen, allow all three scopes: Analytics, Search Console, Cloud Platform &rarr; <strong>Continue</strong> / <strong>Allow</strong></li>
+        <li>Wait for the browser to redirect to "You are now authenticated with the gcloud CLI"</li>
+        <li>Return to PowerShell &mdash; it prints <code>Credentials saved to file: [...]</code>. That exact path is what goes into <code>GOOGLE_APPLICATION_CREDENTIALS</code> in the config.</li>
+      </ol>
+      <div class="ob" style="margin-top:10px;"><strong>The standard path is:</strong> <code>C:\Users\YOUR_USERNAME\AppData\Roaming\gcloud\application_default_credentials.json</code> &mdash; already pre-filled in the config block at the top of this panel.</div>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">Verify the credentials file actually exists</div>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell</span><button class="cpb" onclick="cp(this,'Test-Path &quot;$env:APPDATA\\gcloud\\application_default_credentials.json&quot;')">Copy</button></div><pre>Test-Path "$env:APPDATA\gcloud\application_default_credentials.json"</pre></div>
+      <p>Must print <code>True</code>. If it prints <code>False</code>, the auth command was interrupted before the file was written &mdash; re-run Step 04 and don't close the browser or terminal until PowerShell prints the "Credentials saved to file" line.</p>
+    </div>
+  </div>
+  <div class="div"></div>
+
+  <!-- Step 05: Install analytics-mcp -->
+  <div class="section" id="g5">
+    <div class="shd"><div class="sn g">Step 05</div><div><div class="stitle">Install the google-analytics-mcp Package</div><div class="ssub">One pip command. No admin needed &mdash; installs to your user folder.</div></div></div>
+
+    <div class="card">
+      <div class="ctitle">Install via pip directly from GitHub</div>
+      <span class="ac cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>Windows PowerShell</span>
+      <div class="ob" style="margin-bottom:10px;"><strong>&#10003; No admin rights needed.</strong> <code>pip install --user</code> lands inside <code>%APPDATA%\Python\Python312\</code> &mdash; your personal user folder. Total install size ~200&nbsp;MB (lots of Google client libs); takes 1&ndash;2 minutes.</div>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell</span><button class="cpb" onclick="cp(this,'pip install --user git+https://github.com/googleanalytics/google-analytics-mcp.git')">Copy</button></div><pre>pip install --user git+https://github.com/googleanalytics/google-analytics-mcp.git</pre></div>
+      <p style="margin-top:10px;">Wait for the final <code>Successfully installed analytics-mcp-0.5.0 &hellip;</code> line. The package's PyPI name is <code>analytics-mcp</code>, which is why the executable is <code>analytics-mcp.exe</code> (a <code>google-analytics-mcp.exe</code> alias is also created).</p>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">Find the exact analytics-mcp.exe path (needed for the config)</div>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell</span><button class="cpb" onclick="cp(this,'pip show -f analytics-mcp | Select-String -Pattern &quot;Location:|analytics-mcp.exe&quot;')">Copy</button></div><pre>pip show -f analytics-mcp | Select-String -Pattern "Location:|analytics-mcp.exe"</pre></div>
+      <p style="margin-top:10px;">Output shows a <code>Location:</code> line plus relative paths to two exes (<code>analytics-mcp.exe</code> and <code>google-analytics-mcp.exe</code>). Combine Location's parent with <code>Scripts\analytics-mcp.exe</code>. On standard winget / python.org installs the full path is:</p>
+      <div class="cb"><div class="cbh"><span class="cbl">absolute path used in the config</span></div><pre>C:\Users\YOUR_USERNAME\AppData\Roaming\Python\Python312\Scripts\analytics-mcp.exe</pre></div>
+      <div class="ib" style="margin-top:6px;">That exact path is already pre-filled in the config at the top of this panel. If your Python is a different version (e.g. <code>Python311</code>), update the folder name accordingly before saving the config.</div>
+    </div>
+  </div>
+  <div class="div"></div>
+
+  <!-- Step 06: Edit Config File -->
+  <div class="section" id="g6">
+    <div class="shd"><div class="sn g">Step 06</div><div><div class="stitle">Edit the Claude Desktop Config File</div><div class="ssub">Same file as gsc-deep / gsc-multi. You're adding the analytics-mcp block alongside any existing servers.</div></div></div>
+
+    <div class="card">
+      <div class="ctitle">Open the Claude config folder</div>
+      <span class="ac expl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>Windows File Explorer</span>
+      <div class="ho"><strong>How:</strong> Press <span class="kbd">Win</span> + <span class="kbd">R</span> &rarr; paste path &rarr; press <span class="kbd">Enter</span></div>
+      <div class="cb"><div class="cbh"><span class="cbl">Win+R Run dialog</span><button class="cpb" onclick="cp(this,'%APPDATA%\\Claude')">Copy</button></div><pre>%APPDATA%\Claude</pre></div>
+      <p>If <code>claude_desktop_config.json</code> doesn't exist, see Step 04 in the <strong>MCP Deep</strong> tab for create-from-scratch steps (works the same way).</p>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">Two ways to update the file</div>
+      <p style="font-size:13px;margin-bottom:8px;"><strong>Case A &mdash; You don't have any other MCPs yet:</strong></p>
+      <ol>
+        <li>Right-click <code>claude_desktop_config.json</code> &rarr; <strong>Open with</strong> &rarr; <strong>Notepad</strong></li>
+        <li>Select all (<span class="kbd">Ctrl</span>+<span class="kbd">A</span>) &rarr; delete</li>
+        <li>Click <strong>Copy</strong> on the blue config block at the top of this panel and paste it in</li>
+        <li>Replace <code>YOUR_GCP_PROJECT_ID</code> with the Project ID you found in Step 03</li>
+        <li>Save with <span class="kbd">Ctrl</span> + <span class="kbd">S</span></li>
+      </ol>
+      <p style="font-size:13px;margin:14px 0 8px;"><strong>Case B &mdash; You already have gsc-deep and/or gsc-multi configured:</strong></p>
+      <ol>
+        <li>Open the file in Notepad</li>
+        <li>Inside the existing <code>"mcpServers": { ... }</code> object, add a comma <code>,</code> after the last server's closing brace</li>
+        <li>Paste just the <code>analytics-mcp</code> block below (the inner object). Then save.</li>
+      </ol>
+      <div class="cb" style="margin-top:8px;"><div class="cbh"><span class="cbl g">analytics-mcp block &mdash; paste inside the existing mcpServers</span><button class="cpb" onclick="cp(this,'\&quot;analytics-mcp\&quot;: {\n  \&quot;command\&quot;: \&quot;C:\\\\Users\\\\YOUR_USERNAME\\\\AppData\\\\Roaming\\\\Python\\\\Python312\\\\Scripts\\\\analytics-mcp.exe\&quot;,\n  \&quot;args\&quot;: [],\n  \&quot;env\&quot;: {\n    \&quot;GOOGLE_APPLICATION_CREDENTIALS\&quot;: \&quot;C:\\\\Users\\\\YOUR_USERNAME\\\\AppData\\\\Roaming\\\\gcloud\\\\application_default_credentials.json\&quot;,\n    \&quot;GOOGLE_PROJECT_ID\&quot;: \&quot;YOUR_GCP_PROJECT_ID\&quot;\n  }\n}')">Copy</button></div><pre>"analytics-mcp": {
+  "command": "C:\\Users\\YOUR_USERNAME\\AppData\\Roaming\\Python\\Python312\\Scripts\\analytics-mcp.exe",
+  "args": [],
+  "env": {
+    "GOOGLE_APPLICATION_CREDENTIALS": "C:\\Users\\YOUR_USERNAME\\AppData\\Roaming\\gcloud\\application_default_credentials.json",
+    "GOOGLE_PROJECT_ID": "YOUR_GCP_PROJECT_ID"
+  }
+}</pre></div>
+      <div class="wb" style="margin-top:8px;"><strong>Windows JSON rule:</strong> every backslash must be doubled &mdash; <code>\</code> becomes <code>\\</code>. Use straight quotes <code>"</code> only. Spaces inside paths are fine.</div>
+    </div>
+  </div>
+  <div class="div"></div>
+
+  <!-- Step 07: Restart Claude -->
+  <div class="section" id="g7">
+    <div class="shd"><div class="sn g">Step 07</div><div><div class="stitle">Fully Restart Claude Desktop</div><div class="ssub">Must quit from system tray (not just close the window) so the new MCP loads.</div></div></div>
+    <div class="card">
+      <div class="ctitle">Quit from system tray and reopen</div>
+      <span class="ac claud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="3"/></svg>Claude Desktop &mdash; Windows system tray</span>
+      <div class="wb" style="margin-top:9px;"><strong>Critical:</strong> Bottom-right of screen near the clock. Find the Claude icon. Right-click &rarr; <strong>Quit</strong>. Reopen Claude Desktop from the Start menu.</div>
+      <p style="margin-top:12px;font-size:13px;"><strong>If tray Quit leaves leftover processes</strong> &mdash; force-kill all <code>Claude.exe</code> processes:</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">cmd or powershell</span><button class="cpb" onclick="cp(this,'taskkill /F /IM Claude.exe')">Copy</button></div><pre>taskkill /F /IM Claude.exe</pre></div>
+      <div class="ob" style="margin-top:10px;">After restart, look for the hammer &#128296; icon near the chat input &mdash; it should now show analytics-mcp loaded alongside any GSC MCPs. Test with one of the prompts at the bottom of this page.</div>
+    </div>
+  </div>
+  <div class="div"></div>
+
+  <!-- How to use in Claude Desktop chat -->
+  <div class="section" id="guse">
+    <div class="shd"><div class="sn g">How to use</div><div><div class="stitle">Using analytics-mcp inside Claude Desktop chat</div><div class="ssub">Three rules &mdash; follow them and every prompt will hit the right server with the right account.</div></div></div>
+
+    <div class="card">
+      <div class="ctitle">Rule 1 &mdash; Open the Claude Desktop app, not a browser</div>
+      <span class="ac claud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="3"/></svg>Claude Desktop &mdash; installed Windows app</span>
+      <ol style="margin-top:9px;">
+        <li>Press <span class="kbd">Win</span> key, type <code>Claude</code>, click the Claude desktop app (NOT a browser link, NOT claude.ai)</li>
+        <li>Once open, look near the chat input &mdash; you should see a small <strong>hammer icon &#128296;</strong> with a tool count. That means MCPs are loaded.</li>
+        <li>If you don't see the hammer, the config didn't load. Fully quit Claude from the system tray (bottom-right near the clock) and reopen.</li>
+      </ol>
+      <div class="wb" style="margin-top:10px;"><strong>If you see "Google Drive, Gmail, Canva, Supermetrics" listed as the available tools, you're in Claude.ai (the browser) by mistake.</strong> Close that tab and open the Claude Desktop app instead.</div>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">Rule 2 &mdash; Always start your prompt with "Using analytics-mcp..."</div>
+      <p>Since you also have gsc-deep and gsc-multi loaded, Claude needs to know which server to use. Be explicit, every time:</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">prompt to type in Claude Desktop chat</span><button class="cpb" onclick="cp(this,'Using analytics-mcp, list all my GA4 accounts and properties.')">Copy</button></div><pre>Using analytics-mcp, list all my GA4 accounts and properties.</pre></div>
+      <p style="margin-top:9px;">The reply lists every property your authenticated Gmail can see, each with a 9-digit <strong>Property ID</strong> (e.g. <code>properties/503056070</code>). Copy the ID of the property you want to query in follow-up prompts.</p>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">Rule 3 &mdash; You can use the website name OR the Property ID</div>
+      <p>The GA4 API technically requires a numeric Property ID, but Claude does the lookup for you. <strong>You can just say the domain or website name</strong> and Claude will find the matching property automatically.</p>
+      <div class="bf">
+        <div class="bfc"><h4><span class="fbdg g">By website name</span> Easiest</h4><p style="font-style:italic;font-size:14.5px;">"Using analytics-mcp, show last 28 days sessions for nexaprefab.com"</p><p style="font-size:13.5px;color:var(--muted);margin-top:6px;">Claude calls <code>get_account_summaries</code> first, matches the domain to a property, then runs the report. Two tool calls instead of one &mdash; slightly slower but way easier to remember.</p></div>
+        <div class="bfc"><h4><span class="fbdg g">By Property ID</span> Faster</h4><p style="font-style:italic;font-size:14.5px;">"Using analytics-mcp, show last 28 days sessions for property 503056070"</p><p style="font-size:13.5px;color:var(--muted);margin-top:6px;">One tool call &mdash; no lookup needed. Use this when you already know the ID and want the fastest answer.</p></div>
+      </div>
+      <div class="ib" style="margin-top:10px;"><strong>&#9733; Pro tip &mdash; load the property list once per chat session.</strong> Start every Claude Desktop chat with a single prompt:
+        <div class="cb" style="margin-top:8px;"><div class="cbh"><span class="cbl g">first prompt of every session</span><button class="cpb" onclick="cp(this,'Using analytics-mcp, list all my GA4 accounts and properties. Remember these for the rest of our chat — I will refer to properties by their website name.')">Copy</button></div><pre>Using analytics-mcp, list all my GA4 accounts and properties. Remember these for the rest of our chat &mdash; I will refer to properties by their website name.</pre></div>
+        After that, you can say <em>"for pharmacygreek.com"</em> or <em>"for the Locker Emporium property"</em> and Claude pulls the right ID from memory without an extra lookup. Works for the entire conversation.</div>
+      <p style="margin-top:10px;font-size:14.5px;"><strong>Example &mdash; once the list is loaded, all of these work:</strong></p>
+      <div class="cb"><div class="cbh"><span class="cbl g">examples &mdash; pick one</span></div><pre>Using analytics-mcp, last 28 days traffic for nexaprefab.com
+Using analytics-mcp, conversions for pharmacygreek.com vs mypharmacyboutique.ro this month
+Using analytics-mcp, top landing pages on georgetowndecks.com last 90 days
+Using analytics-mcp, realtime active users on the Locker Emporium property</pre></div>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">Combine with GSC in one prompt (chained workflow)</div>
+      <p>You can mix all three MCPs in a single message. Repeat the "Using &lt;mcp&gt;&hellip;" prefix at each step so Claude routes each call to the right server. Use the domain name for the GA part &mdash; Claude resolves it automatically:</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">prompt to type in Claude Desktop chat &mdash; by domain (easiest)</span><button class="cpb" onclick="cp(this,'Using gsc-multi and account YOUR_ALIAS, show top 5 pages by clicks for example.com. Then using analytics-mcp, show conversion rate and revenue for those same pages on example.com for the last 30 days.')">Copy</button></div><pre>Using gsc-multi and account YOUR_ALIAS, show top 5 pages by clicks for example.com. Then using analytics-mcp, show conversion rate and revenue for those same pages on example.com for the last 30 days.</pre></div>
+      <p style="margin-top:10px;font-size:14.5px;">If Claude says it can't find the property by domain, swap in the 9-digit Property ID for the GA step:</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">fallback &mdash; by Property ID</span><button class="cpb" onclick="cp(this,'Using gsc-multi and account YOUR_ALIAS, show top 5 pages by clicks for example.com. Then using analytics-mcp, show conversion rate and revenue for those same pages on property 503056070 for the last 30 days.')">Copy</button></div><pre>Using gsc-multi and account YOUR_ALIAS, show top 5 pages by clicks for example.com. Then using analytics-mcp, show conversion rate and revenue for those same pages on property 503056070 for the last 30 days.</pre></div>
+    </div>
+  </div>
+  <div class="div"></div>
+
+  <!-- Switch account -->
+  <div class="section" id="gswitch">
+    <div class="shd"><div class="sn g">&#8634; Switch Account</div><div><div class="stitle">Change to a Different Google Account</div><div class="ssub">analytics-mcp reads whatever ADC credentials are saved on disk. Re-running auth swaps the bound account for BOTH GA and GSC at once.</div></div></div>
+
+    <div class="card">
+      <div class="ctitle">When you'd need to switch</div>
+      <ul>
+        <li>You manage GA properties under multiple Gmails (personal + agency, dev + prod)</li>
+        <li>The current account doesn't have access to the property you want to analyze</li>
+        <li>You added a new Gmail as a test user and want analytics-mcp bound to it</li>
+        <li>You're getting <code>PERMISSION_DENIED</code> or empty property lists &mdash; almost always means wrong account</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">Option A &mdash; Swap directly (overwrite the current credentials)</div>
+      <span class="ac cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>Windows PowerShell</span>
+      <p style="margin-top:8px;">Run the same login command from Step 04. In the browser picker, choose the <strong>different</strong> Gmail. The new token overwrites the old one. Restart Claude Desktop afterwards.</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell &mdash; swap account in one go</span><button class="cpb" onclick="cp(this,'gcloud auth application-default login --client-id-file=&quot;C:\\Users\\YOUR_USERNAME\\Documents\\client_secrets.json&quot; --scopes=https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/webmasters.readonly,https://www.googleapis.com/auth/cloud-platform')">Copy</button></div><pre>gcloud auth application-default login --client-id-file="C:\Users\YOUR_USERNAME\Documents\client_secrets.json" --scopes=https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/webmasters.readonly,https://www.googleapis.com/auth/cloud-platform</pre></div>
+      <div class="wb" style="margin-top:10px;"><strong>Browser-account hygiene:</strong> if Chrome / Edge is signed into multiple Google accounts, the picker shows them all and it's easy to click the wrong one. Either sign out of all at <a href="https://accounts.google.com/Logout" target="_blank">accounts.google.com/Logout</a> first, OR open an Incognito window and start fresh there.</div>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">Option B &mdash; Revoke first, then re-auth (cleanest)</div>
+      <p>For zero leftover state from the previous account, revoke the existing ADC token before logging back in:</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell &mdash; revoke + re-login</span><button class="cpb" onclick="cp(this,'gcloud auth application-default revoke\ngcloud auth application-default login --client-id-file=&quot;C:\\Users\\YOUR_USERNAME\\Documents\\client_secrets.json&quot; --scopes=https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/webmasters.readonly,https://www.googleapis.com/auth/cloud-platform')">Copy</button></div><pre>gcloud auth application-default revoke
+gcloud auth application-default login --client-id-file="C:\Users\YOUR_USERNAME\Documents\client_secrets.json" --scopes=https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/webmasters.readonly,https://www.googleapis.com/auth/cloud-platform</pre></div>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">Option C &mdash; Check which Gmail is currently authenticated</div>
+      <p>Quick sanity check before swapping &mdash; see who is signed in right now:</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell</span><button class="cpb" onclick="cp(this,'gcloud auth list')">Copy</button></div><pre>gcloud auth list</pre></div>
+      <p style="font-size:13px;">The active gcloud account has an asterisk (*) next to it. ADC's bound account may differ &mdash; if so, re-running Step 04 with the right Gmail unifies them.</p>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">After switching &mdash; restart Claude Desktop</div>
+      <p>analytics-mcp reads the ADC file fresh each time Claude Desktop starts. After the new login completes, quit Claude from the system tray and reopen so the new account's properties show up.</p>
+      <div class="ib" style="margin-top:6px;"><strong>Tip:</strong> ask <em>"Using analytics-mcp, list all my GA4 accounts"</em> right after the restart. If you see properties from the new account but not the old, the swap worked.</div>
+    </div>
+  </div>
+  <div class="div"></div>
+
+  <!-- Errors -->
+  <div class="section" id="gerr">
+    <div class="shd"><div class="sn e">Errors</div><div><div class="stitle">Common Errors for analytics-mcp</div><div class="ssub">Real errors encountered during setup &mdash; each with the exact fix</div></div></div>
+
+    <div class="eb"><div class="el">Error 01 &mdash; Python not found</div><div class="etitle">Python was not found; run without arguments to install from the Microsoft Store</div><div class="emsg">'python' is not recognized as an internal or external command &mdash; OR the command opens the Microsoft Store page</div></div>
+    <div class="sb"><div class="sl">Fix</div><div class="stit">Python isn't installed &mdash; the Microsoft Store stub is hijacking the command</div>
+      <p style="font-size:13px;margin-bottom:10px;">Install Python via winget &mdash; it lands in your user folder and updates PATH automatically.</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell</span><button class="cpb" onclick="cp(this,'winget install --id Python.Python.3.12 -e --accept-source-agreements --accept-package-agreements')">Copy</button></div><pre>winget install --id Python.Python.3.12 -e --accept-source-agreements --accept-package-agreements</pre></div>
+      <p style="font-size:13px;margin-top:8px;">Then <strong>close every PowerShell window</strong> and open a fresh one before verifying.</p>
+    </div>
+
+    <div class="eb"><div class="el">Error 02 &mdash; gcloud not recognized</div><div class="etitle">gcloud : The term 'gcloud' is not recognized as the name of a cmdlet</div><div class="emsg">CommandNotFoundException in PowerShell when running any gcloud command</div></div>
+    <div class="sb"><div class="sl">Fix</div><div class="stit">Cloud SDK isn't installed, OR PATH wasn't refreshed after install</div>
+      <ol>
+        <li>Install <a href="https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe" target="_blank">GoogleCloudSDKInstaller.exe</a> (single-user install &mdash; no admin needed)</li>
+        <li>Close ALL terminal windows after install completes</li>
+        <li>Open a fresh PowerShell and re-run <code>gcloud --version</code></li>
+      </ol>
+    </div>
+
+    <div class="eb"><div class="el">Error 03 &mdash; PowerShell scripts disabled</div><div class="etitle">File cannot be loaded because running scripts is disabled on this system</div><div class="emsg">PSSecurityException &mdash; gcloud.ps1, npm, pipx etc. &mdash; UnauthorizedAccess</div></div>
+    <div class="sb"><div class="sl">Fix</div><div class="stit">PowerShell execution policy is too restrictive &mdash; relax it for your user only</div>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell &mdash; one-time fix</span><button class="cpb" onclick="cp(this,'Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force')">Copy</button></div><pre>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force</pre></div>
+      <p style="font-size:13px;margin-top:8px;">RemoteSigned is Microsoft's recommended developer default &mdash; local scripts run, only unsigned scripts downloaded from the internet are blocked.</p>
+    </div>
+
+    <div class="eb"><div class="el">Error 04 &mdash; Google "This app is blocked"</div><div class="etitle">This app is blocked &mdash; Google blocked this access</div><div class="emsg">During OAuth: "This app tried to access sensitive info in your Google Account. To keep your account safe, Google blocked this access."</div></div>
+    <div class="sb"><div class="sl">Fix</div><div class="stit">Your Gmail isn't a test user on the OAuth consent screen, OR you picked the wrong account</div>
+      <ol>
+        <li>Go to <a href="https://console.cloud.google.com/apis/credentials/consent" target="_blank">console.cloud.google.com/apis/credentials/consent</a> with the project that owns <code>client_secrets.json</code> selected</li>
+        <li>Scroll to <strong>Test users</strong> &rarr; <strong>+ Add Users</strong> &rarr; add your Gmail &rarr; Save</li>
+        <li>Sign out of all other Google accounts at <a href="https://accounts.google.com/Logout" target="_blank">accounts.google.com/Logout</a> to clean the picker</li>
+        <li>Re-run the Step 04 auth command</li>
+      </ol>
+    </div>
+
+    <div class="eb"><div class="el">Error 05 &mdash; PERMISSION_DENIED (API not enabled)</div><div class="etitle">PERMISSION_DENIED: Google Analytics Admin API has not been used in project &hellip; or it is disabled</div><div class="emsg">Returned the first time you call get_account_summaries &mdash; also appears for the Analytics Data API</div></div>
+    <div class="sb"><div class="sl">Fix</div><div class="stit">Enable the API in the same project that owns your client_secrets.json</div>
+      <p style="font-size:13px;margin-bottom:10px;">Open both links, confirm the right project is selected at the top, click <strong>Enable</strong>:</p>
+      <ul>
+        <li><a href="https://console.cloud.google.com/apis/library/analyticsadmin.googleapis.com" target="_blank">Analytics Admin API</a></li>
+        <li><a href="https://console.cloud.google.com/apis/library/analyticsdata.googleapis.com" target="_blank">Analytics Data API</a></li>
+      </ul>
+      <p style="font-size:13px;margin-top:8px;">After enabling, no Claude restart is needed &mdash; just re-ask the question.</p>
+    </div>
+
+    <div class="eb"><div class="el">Error 06 &mdash; Empty property list / wrong account</div><div class="etitle">analytics-mcp connects but get_account_summaries returns no properties</div><div class="emsg">Empty response OR returns properties from a different Gmail than the one you expected</div></div>
+    <div class="sb"><div class="sl">Fix</div><div class="stit">You authenticated with the wrong Gmail &mdash; your GA properties live under a different account</div>
+      <p style="font-size:13px;margin-bottom:8px;">See the <strong>&#8634; Switch Account</strong> section above. Quickest swap:</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell</span><button class="cpb" onclick="cp(this,'gcloud auth application-default login --client-id-file=&quot;C:\\Users\\YOUR_USERNAME\\Documents\\client_secrets.json&quot; --scopes=https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/webmasters.readonly,https://www.googleapis.com/auth/cloud-platform')">Copy</button></div><pre>gcloud auth application-default login --client-id-file="C:\Users\YOUR_USERNAME\Documents\client_secrets.json" --scopes=https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/webmasters.readonly,https://www.googleapis.com/auth/cloud-platform</pre></div>
+      <p style="font-size:13px;margin-top:8px;">Sign in with the Gmail that owns or has Viewer+ access to the GA4 property you want. Restart Claude Desktop afterwards.</p>
+    </div>
+
+    <div class="eb"><div class="el">Error 07 &mdash; analytics-mcp.exe not found</div><div class="etitle">spawn analytics-mcp.exe ENOENT</div><div class="emsg">Claude Desktop logs show ENOENT when trying to launch the MCP server &mdash; OR the hammer icon doesn't appear</div></div>
+    <div class="sb"><div class="sl">Fix</div><div class="stit">The command path in the config doesn't match where pip actually installed the exe</div>
+      <p style="font-size:13px;margin-bottom:10px;">Find the real path with:</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell</span><button class="cpb" onclick="cp(this,'pip show -f analytics-mcp | Select-String -Pattern &quot;Location:|analytics-mcp.exe&quot;')">Copy</button></div><pre>pip show -f analytics-mcp | Select-String -Pattern "Location:|analytics-mcp.exe"</pre></div>
+      <p style="font-size:13px;margin-top:8px;">Combine the Location's parent folder with <code>Scripts\analytics-mcp.exe</code> &mdash; that absolute path goes into the <code>command</code> field of the config. If Python is 3.11 the folder is <code>Python311</code>, not <code>Python312</code>.</p>
+    </div>
+
+    <div class="eb"><div class="el">Error 08 &mdash; Credentials file missing</div><div class="etitle">Could not automatically determine credentials</div><div class="emsg">google.auth.exceptions.DefaultCredentialsError &mdash; file not found at the GOOGLE_APPLICATION_CREDENTIALS path</div></div>
+    <div class="sb"><div class="sl">Fix</div><div class="stit">Either the auth command was interrupted, or the path in the config doesn't match where gcloud actually saved the token</div>
+      <p style="font-size:13px;margin-bottom:10px;">Confirm the file exists:</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">powershell</span><button class="cpb" onclick="cp(this,'Test-Path &quot;$env:APPDATA\\gcloud\\application_default_credentials.json&quot;')">Copy</button></div><pre>Test-Path "$env:APPDATA\gcloud\application_default_credentials.json"</pre></div>
+      <p style="font-size:13px;margin-top:8px;">If <code>False</code>, re-run Step 04 and wait until PowerShell prints <code>Credentials saved to file: [&hellip;]</code> before closing anything. If <code>True</code>, make sure the exact same path is in the config's <code>GOOGLE_APPLICATION_CREDENTIALS</code> field (with every backslash doubled in JSON).</p>
+    </div>
+  </div>
+  <div class="div"></div>
+
+  <!-- Test prompts -->
+  <div id="gprompts">
+    <div class="ps">
+      <div class="psh"><h2>&#9679; Test Prompts &mdash; analytics-mcp</h2><p>Always start prompts with <strong>"Using analytics-mcp&hellip;"</strong>. Replace <code>example.com</code> with your real domain. If Claude can't find a property by domain (rare &mdash; happens when the display name in GA4 has no domain in it), swap in the 9-digit Property ID instead (e.g. <code>property 503056070</code>).</p></div>
+      <div class="psg">
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, list all my GA4 accounts and properties. Remember these for the rest of our chat — I will refer to properties by their website name.')"><span class="pt"><strong>Run this first:</strong> "Using analytics-mcp, list all my GA4 accounts and properties. Remember these for the rest of our chat &mdash; I will refer to properties by their website name."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, show last 28 days sessions, users, and pageviews for example.com.')"><span class="pt"><strong>By domain:</strong> "Using analytics-mcp, show last 28 days sessions, users, and pageviews for example.com."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, show last 28 days sessions, users, and pageviews for property 503056070.')"><span class="pt"><strong>Fallback by ID:</strong> "Using analytics-mcp, show last 28 days sessions, users, and pageviews for property 503056070."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, run a realtime report for example.com — top pages and active users right now.')"><span class="pt"><strong>Realtime by domain:</strong> "Using analytics-mcp, run a realtime report for example.com &mdash; top pages and active users right now."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, run a realtime report for property 503056070 — top pages and active users right now.')"><span class="pt"><strong>Realtime by ID (fallback):</strong> "Using analytics-mcp, run a realtime report for property 503056070 &mdash; top pages and active users right now."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, compare last 28 days vs previous 28 days for example.com — sessions, conversions, revenue.')"><span class="pt"><strong>Period compare by domain:</strong> "Using analytics-mcp, compare last 28 days vs previous 28 days for example.com &mdash; sessions, conversions, revenue."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, compare last 28 days vs previous 28 days for property 503056070 — sessions, conversions, revenue.')"><span class="pt"><strong>Period compare by ID (fallback):</strong> "Using analytics-mcp, compare last 28 days vs previous 28 days for property 503056070 &mdash; sessions, conversions, revenue."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, show top 20 landing pages by sessions for example.com last 30 days, with bounce rate and avg session duration.')"><span class="pt"><strong>Top pages by domain:</strong> "Using analytics-mcp, show top 20 landing pages by sessions for example.com last 30 days, with bounce rate and avg session duration."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, show top 20 landing pages by sessions for property 503056070 last 30 days, with bounce rate and avg session duration.')"><span class="pt"><strong>Top pages by ID (fallback):</strong> "Using analytics-mcp, show top 20 landing pages by sessions for property 503056070 last 30 days, with bounce rate and avg session duration."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, run a conversion report for example.com — top events by count and value for last 90 days.')"><span class="pt"><strong>Conversions by domain:</strong> "Using analytics-mcp, run a conversion report for example.com &mdash; top events by count and value for last 90 days."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, run a conversion report for property 503056070 — top events by count and value for last 90 days.')"><span class="pt"><strong>Conversions by ID (fallback):</strong> "Using analytics-mcp, run a conversion report for property 503056070 &mdash; top events by count and value for last 90 days."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, build a funnel report for example.com: page_view → add_to_cart → begin_checkout → purchase for last 30 days.')"><span class="pt"><strong>Funnel by domain:</strong> "Using analytics-mcp, build a funnel for example.com: page_view &rarr; add_to_cart &rarr; begin_checkout &rarr; purchase for last 30 days."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, build a funnel report for property 503056070: page_view → add_to_cart → begin_checkout → purchase for last 30 days.')"><span class="pt"><strong>Funnel by ID (fallback):</strong> "Using analytics-mcp, build a funnel for property 503056070: page_view &rarr; add_to_cart &rarr; begin_checkout &rarr; purchase for last 30 days."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, list custom dimensions and metrics defined on example.com.')"><span class="pt"><strong>Custom dims by domain:</strong> "Using analytics-mcp, list custom dimensions and metrics defined on example.com."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+        <div class="pc" onclick="cpP(this,'Using analytics-mcp, list Google Ads accounts linked to example.com.')"><span class="pt"><strong>Google Ads links by domain:</strong> "Using analytics-mcp, list Google Ads accounts linked to example.com."</span><div class="pm"><span class="pmcp g">analytics-mcp</span><span class="pcp">Copy &#8599;</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="shd"><div class="sn g">Remember</div><div><div class="stitle">analytics-mcp cheat sheet</div><div class="ssub">Three rules that always apply.</div></div></div>
+    <div class="card">
+      <div class="ctitle">&#9733; Always name the server in your prompt</div>
+      <p>If both GSC and GA MCPs are loaded, prefix every prompt with <strong>"Using analytics-mcp&hellip;"</strong> &mdash; otherwise Claude may route GA queries to gsc-deep / gsc-multi and fail.</p>
+    </div>
+    <div class="card">
+      <div class="ctitle">&#9733; You can use the domain instead of the Property ID</div>
+      <p>The API needs a numeric Property ID, but Claude resolves domains automatically &mdash; just say <em>"for pharmacygreek.com"</em>. To skip the extra lookup, load the full list once per session:</p>
+      <div class="cb"><div class="cbh"><span class="cbl g">first prompt of every chat session</span><button class="cpb" onclick="cp(this,'Using analytics-mcp, list all my GA4 accounts and properties. Remember these for the rest of our chat — I will refer to properties by their website name.')">Copy</button></div><pre>Using analytics-mcp, list all my GA4 accounts and properties. Remember these for the rest of our chat &mdash; I will refer to properties by their website name.</pre></div>
+      <p style="margin-top:8px;">After that prompt, Claude has every property name and ID in chat memory. You can ask by domain name (<code>nexaprefab.com</code>), display name (<code>Locker Emporium</code>), or 9-digit ID (<code>503056070</code>) &mdash; whichever is easiest.</p>
+    </div>
+    <div class="card">
+      <div class="ctitle">&#9733; One Google account at a time</div>
+      <p>Unlike gsc-multi, analytics-mcp can only authenticate one account at a time via ADC. To switch, re-run the auth command from Step 04 &mdash; see <strong>&#8634; Switch Account</strong> above.</p>
+    </div>
+  </div>
+</div>
+
 <!-- ========================== PANEL: BOTH ========================== -->
 <div class="panel" id="panel-both">
   <div class="cfg-ban">
-    <h3>&#9881; Combined Config &mdash; Both MCPs Together</h3>
-    <p class="csub">Complete setup for gsc-deep (<strong>MCP Deep tab</strong>) AND gsc-multi (<strong>MCP Multi tab</strong>) first, then paste this combined config. Both servers will be live after a full Claude Desktop restart.</p>
+    <h3>&#9881; Combined Config &mdash; All Three MCPs Together</h3>
+    <p class="csub">Complete setup for gsc-deep (<strong>MCP Deep tab</strong>), gsc-multi (<strong>MCP Multi tab</strong>), AND analytics-mcp (<strong>MCP Google Analytics tab</strong>) first, then paste this combined config. All three servers will be live after a full Claude Desktop restart.</p>
     <div class="cfg-tags">
       <span class="ctg d"><span class="cd"></span> gsc-deep</span>
       <span class="ctg m"><span class="cd"></span> gsc-multi</span>
+      <span class="ctg g"><span class="cd"></span> analytics-mcp</span>
     </div>
     <div class="cb">
       <div class="cbh"><span class="cbl p">claude_desktop_config.json &mdash; final combined config</span><button class="cpb" id="bcpy" onclick="cBoth()">Copy</button></div>
@@ -981,6 +1523,15 @@ Set-Content "$d\index.js" -Value $b -NoNewline
       <span class="k">"args"</span>: [
         <span class="s">"C:\\Users\\YOUR_USERNAME\\AppData\\Roaming\\npm\\node_modules\\google-searchconsole-mcp\\dist\\index.js"</span>
       ]
+    },
+    <span class="k">"analytics-mcp"</span>: {
+      <span class="c">// Google Analytics 4 MCP — uses gcloud ADC, shares client_secrets.json with gsc-deep</span>
+      <span class="k">"command"</span>: <span class="s">"C:\\Users\\YOUR_USERNAME\\AppData\\Roaming\\Python\\Python312\\Scripts\\analytics-mcp.exe"</span>,
+      <span class="k">"args"</span>: [],
+      <span class="k">"env"</span>: {
+        <span class="k">"GOOGLE_APPLICATION_CREDENTIALS"</span>: <span class="s">"C:\\Users\\YOUR_USERNAME\\AppData\\Roaming\\gcloud\\application_default_credentials.json"</span>,
+        <span class="k">"GOOGLE_PROJECT_ID"</span>: <span class="s">"YOUR_GCP_PROJECT_ID"</span>
+      }
     }
   }
 }</pre>
@@ -992,18 +1543,21 @@ Set-Content "$d\index.js" -Value $b -NoNewline
     <div class="shd"><div class="sn p">How it works</div><div><div class="stitle">Using Both MCPs in a Single Chat</div><div class="ssub">Each MCP has a different name. Tell Claude which one to use by naming it in your prompt.</div></div></div>
     <div class="card">
       <div class="ctitle">When to use which MCP</div>
-      <div class="bf">
-        <div class="bfc"><h4><span class="fbdg d">gsc-deep</span> Deep per-site analysis</h4><p>URL-level inspection, sitemap audits, mobile usability, indexing status, comparing time periods. Requires your Google credentials file.</p></div>
-        <div class="bfc"><h4><span class="fbdg m">gsc-multi</span> Multi-account management</h4><p>Managing multiple Google accounts, comparing across all properties, checking all sites at once. No Google Cloud setup required.</p></div>
+      <div class="bf" style="grid-template-columns:1fr 1fr 1fr;">
+        <div class="bfc"><h4><span class="fbdg d">gsc-deep</span> Deep per-site SEO</h4><p>URL-level inspection, sitemap audits, mobile usability, indexing status, period comparisons. Single Google account via your client_secrets.json.</p></div>
+        <div class="bfc"><h4><span class="fbdg m">gsc-multi</span> Multi-account GSC</h4><p>Managing multiple GSC accounts, comparing across all properties, listing every site at once. No Google Cloud setup &mdash; built-in OAuth.</p></div>
+        <div class="bfc"><h4><span class="fbdg g">analytics-mcp</span> Google Analytics 4</h4><p>GA4 traffic, conversions, funnels, realtime, audience, Google Ads links. Uses gcloud ADC and shares the gsc-deep client_secrets.json.</p></div>
       </div>
-      <div class="ib" style="margin-top:4px;">Start your prompt with <strong>"Using gsc-deep..."</strong> or <strong>"Using gsc-multi..."</strong> to direct Claude to the right MCP. If you do not specify, Claude will choose one automatically based on the task.</div>
+      <div class="ib" style="margin-top:4px;">Start your prompt with <strong>"Using gsc-deep&hellip;"</strong>, <strong>"Using gsc-multi&hellip;"</strong>, or <strong>"Using analytics-mcp&hellip;"</strong> to direct Claude to the right MCP. If you do not specify, Claude will choose one automatically based on the task &mdash; not always correctly.</div>
     </div>
     <div class="card">
-      <div class="ctitle">Setup checklist before using the Both config</div>
+      <div class="ctitle">Setup checklist before using the combined config</div>
       <ol>
-        <li>Complete all steps in the <strong>MCP Deep</strong> tab (Google Cloud credentials, uv install, OAuth login triggered)</li>
+        <li>Complete all steps in the <strong>MCP Deep</strong> tab (Google Cloud project + credentials, uv install, OAuth login triggered)</li>
         <li>Complete all steps in the <strong>MCP Multi</strong> tab (npm install, accounts authenticated with aliases)</li>
-        <li>Copy the combined config above and paste it into <code>claude_desktop_config.json</code> in Notepad</li>
+        <li>Complete all steps in the <strong>MCP Google Analytics</strong> tab (Python, gcloud, enable GA APIs, ADC auth, pip install)</li>
+        <li>Replace <code>YOUR_GCP_PROJECT_ID</code> in the combined config above with your actual Project ID from the Cloud Console</li>
+        <li>Paste the combined config into <code>claude_desktop_config.json</code> in Notepad and save</li>
         <li>Quit Claude from the system tray (bottom-right near the clock) &rarr; reopen Claude Desktop</li>
         <li>Test with the prompts below</li>
       </ol>
@@ -1050,8 +1604,8 @@ Set-Content "$d\index.js" -Value $b -NoNewline
   <div class="div"></div>
 
   <div class="fin">
-    <h2>Both MCPs Active &#10003;</h2>
-    <p>gsc-deep handles deep per-site analytics, URL inspection and sitemap audits. gsc-multi handles multi-account management. Together they give you complete SEO visibility in a single Claude Desktop chat.</p>
+    <h2>All Three MCPs Active &#10003;</h2>
+    <p>gsc-deep handles deep per-site SEO. gsc-multi handles multi-account GSC management. analytics-mcp handles Google Analytics 4 traffic, conversions, and realtime. Together they give you complete SEO + analytics visibility in a single Claude Desktop chat.</p>
   </div>
 </div>
 
@@ -1085,13 +1639,13 @@ function escHtml(s) {
 function getUsername() { return currentUsername; }
 
 function sw(t){
-  ['deep','multi','both'].forEach(x=>{
+  ['deep','multi','ga','both'].forEach(x=>{
     document.getElementById('panel-'+x).classList.remove('show');
     const b=document.getElementById('tb-'+x);
     b.className='tb';
   });
   document.getElementById('panel-'+t).classList.add('show');
-  const map={deep:'ad',multi:'am',both:'ab'};
+  const map={deep:'ad',multi:'am',ga:'ag',both:'ab'};
   document.getElementById('tb-'+t).classList.add(map[t]);
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -1112,9 +1666,14 @@ function cMulti(){
   const t='{\n  "mcpServers": {\n    "gsc-multi": {\n      "command": "node",\n      "args": [\n        "C:\\\\Users\\\\'+u+'\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\\\\google-searchconsole-mcp\\\\dist\\\\index.js"\n      ]\n    }\n  }\n}';
   navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('mcpy');b.classList.add('ok');b.textContent='Copied!';setTimeout(()=>{b.classList.remove('ok');b.textContent='Copy';},2500);});
 }
+function cGA(){
+  const u=getUsername();
+  const t='{\n  "mcpServers": {\n    "analytics-mcp": {\n      "command": "C:\\\\Users\\\\'+u+'\\\\AppData\\\\Roaming\\\\Python\\\\Python312\\\\Scripts\\\\analytics-mcp.exe",\n      "args": [],\n      "env": {\n        "GOOGLE_APPLICATION_CREDENTIALS": "C:\\\\Users\\\\'+u+'\\\\AppData\\\\Roaming\\\\gcloud\\\\application_default_credentials.json",\n        "GOOGLE_PROJECT_ID": "YOUR_GCP_PROJECT_ID"\n      }\n    }\n  }\n}';
+  navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('gcpy');b.classList.add('ok');b.textContent='Copied!';setTimeout(()=>{b.classList.remove('ok');b.textContent='Copy';},2500);});
+}
 function cBoth(){
   const u=getUsername();
-  const t='{\n  "mcpServers": {\n    "gsc-deep": {\n      "command": "C:\\\\Users\\\\'+u+'\\\\.local\\\\bin\\\\uvx.exe",\n      "args": ["mcp-search-console"],\n      "env": {\n        "GSC_OAUTH_CLIENT_SECRETS_FILE": "C:\\\\Users\\\\'+u+'\\\\Documents\\\\client_secrets.json"\n      }\n    },\n    "gsc-multi": {\n      "command": "node",\n      "args": [\n        "C:\\\\Users\\\\'+u+'\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\\\\google-searchconsole-mcp\\\\dist\\\\index.js"\n      ]\n    }\n  }\n}';
+  const t='{\n  "mcpServers": {\n    "gsc-deep": {\n      "command": "C:\\\\Users\\\\'+u+'\\\\.local\\\\bin\\\\uvx.exe",\n      "args": ["mcp-search-console"],\n      "env": {\n        "GSC_OAUTH_CLIENT_SECRETS_FILE": "C:\\\\Users\\\\'+u+'\\\\Documents\\\\client_secrets.json"\n      }\n    },\n    "gsc-multi": {\n      "command": "node",\n      "args": [\n        "C:\\\\Users\\\\'+u+'\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\\\\google-searchconsole-mcp\\\\dist\\\\index.js"\n      ]\n    },\n    "analytics-mcp": {\n      "command": "C:\\\\Users\\\\'+u+'\\\\AppData\\\\Roaming\\\\Python\\\\Python312\\\\Scripts\\\\analytics-mcp.exe",\n      "args": [],\n      "env": {\n        "GOOGLE_APPLICATION_CREDENTIALS": "C:\\\\Users\\\\'+u+'\\\\AppData\\\\Roaming\\\\gcloud\\\\application_default_credentials.json",\n        "GOOGLE_PROJECT_ID": "YOUR_GCP_PROJECT_ID"\n      }\n    }\n  }\n}';
   navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('bcpy');b.classList.add('ok');b.textContent='Copied!';setTimeout(()=>{b.classList.remove('ok');b.textContent='Copy';},2500);});
 }
 function cpP(el,text){
